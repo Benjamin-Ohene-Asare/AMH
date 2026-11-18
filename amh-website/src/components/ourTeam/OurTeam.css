@@ -1,0 +1,372 @@
+
+.amh-team-section {
+  position: relative;
+  padding: 110px 6%;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(13, 137, 80, 0.055), transparent 30%),
+    radial-gradient(circle at 90% 85%, rgba(13, 137, 80, 0.045), transparent 30%),
+    #f7faf8;
+  overflow: hidden;
+}
+
+.amh-team-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* INTRODUCTION */
+
+.amh-team-intro {
+  max-width: 850px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.amh-team-eyebrow {
+  display: inline-block;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-bottom: 17px;
+}
+
+.amh-team-intro h2 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+.amh-team-intro h2 span {
+  color: #0d8950;
+}
+
+.amh-team-intro p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #68766f;
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* TEAM HEADING */
+
+.amh-team-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.amh-team-heading h3 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 27px;
+  font-weight: 700;
+  margin: 0 0 7px;
+}
+
+.amh-team-heading p {
+  color: #7b8982;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  margin: 0;
+}
+
+.amh-team-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #0d8950;
+  background: #e8f5ed;
+  padding: 11px 17px;
+  border-radius: 50px;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* TEAM GRID */
+
+.amh-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.amh-team-reveal {
+  height: 100%;
+  display: flex;
+}
+
+/* TEAM CARD */
+
+.amh-team-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(7, 59, 43, 0.07);
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(7, 59, 43, 0.045);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.amh-team-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(13, 137, 80, 0.2);
+  box-shadow: 0 20px 45px rgba(7, 59, 43, 0.11);
+}
+
+/* IMAGE */
+
+.amh-team-image {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: #edf3ef;
+  overflow: hidden;
+}
+
+.amh-team-image::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(7, 59, 43, 0.12)
+  );
+  pointer-events: none;
+}
+
+.amh-team-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.65s ease;
+}
+
+.amh-team-card:hover .amh-team-image img {
+  transform: scale(1.045);
+}
+
+/* MEMBER DETAILS */
+
+.amh-team-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  padding: 25px 24px 29px;
+}
+
+.amh-team-position {
+  display: inline-block;
+  color: #0d8950;
+  background: #eaf5ee;
+  border-radius: 5px;
+  padding: 7px 11px;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.amh-team-info h3 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 12px;
+}
+
+.amh-team-bio {
+  color: #75827b;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+
+.amh-team-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: gap 0.3s ease;
+}
+
+.amh-team-readmore:hover {
+  gap: 14px;
+}
+
+.amh-team-readmore svg {
+  transition: transform 0.3s ease;
+}
+
+.amh-team-readmore:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* CARD ACCENT */
+
+.amh-team-card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: #0d8950;
+  transition: width 0.4s ease;
+}
+
+.amh-team-card:hover .amh-team-card-accent {
+  width: 100%;
+}
+
+/* FOOTER TEXT */
+
+.amh-team-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 65px;
+  text-align: center;
+}
+
+.amh-team-footer p {
+  color: #718078;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.amh-team-footer-line {
+  width: 45px;
+  height: 1px;
+  background: #b7d5c3;
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .amh-team-section {
+    padding: 90px 5%;
+  }
+
+  .amh-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .amh-team-image {
+    height: 320px;
+  }
+}
+
+@media (max-width: 650px) {
+  .amh-team-section {
+    padding: 75px 5%;
+  }
+
+  .amh-team-intro {
+    margin-bottom: 45px;
+  }
+
+  .amh-team-intro h2 {
+    font-size: 34px;
+  }
+
+  .amh-team-intro p {
+    font-size: 13px;
+  }
+
+  .amh-team-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .amh-team-heading h3 {
+    font-size: 24px;
+  }
+
+  .amh-team-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .amh-team-image {
+    height: 360px;
+  }
+
+  .amh-team-info {
+    padding: 23px 21px 27px;
+  }
+
+  .amh-team-footer {
+    gap: 10px;
+    margin-top: 45px;
+  }
+
+  .amh-team-footer p {
+    font-size: 11px;
+  }
+
+  .amh-team-footer-line {
+    width: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .amh-team-image {
+    height: 300px;
+  }
+
+  .amh-team-intro h2 {
+    font-size: 29px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-team-card,
+  .amh-team-image img,
+  .amh-team-readmore,
+  .amh-team-readmore svg,
+  .amh-team-card-accent {
+    transition: none;
+  }
+}

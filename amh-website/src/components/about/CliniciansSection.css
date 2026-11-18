@@ -1,0 +1,244 @@
+
+.amh-clinicians-section {
+  padding: 110px 6%;
+  background: #f5f8f5;
+  overflow: hidden;
+}
+
+.amh-clinicians-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.amh-clinicians-heading {
+  max-width: 720px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.amh-clinicians-heading > span {
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-clinicians-heading h2 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(35px, 4.5vw, 50px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  margin: 17px 0;
+}
+
+.amh-clinicians-heading h2 span {
+  color: #0d8950;
+}
+
+.amh-clinicians-heading p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: #78867d;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* GRID */
+
+.amh-clinicians-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* CARD */
+
+.amh-clinician-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e9efea;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.amh-clinician-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(7, 59, 43, 0.1);
+}
+
+/* PORTRAIT */
+
+.amh-clinician-image {
+  position: relative;
+  height: 285px;
+  overflow: hidden;
+  background: #e7eee8;
+}
+
+.amh-clinician-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+
+.amh-clinician-card:hover .amh-clinician-image img {
+  transform: scale(1.06);
+}
+
+.amh-clinician-number {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #0d8950;
+  border-radius: 50%;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* DETAILS */
+
+.amh-clinician-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 23px 20px 17px;
+}
+
+.amh-clinician-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.amh-clinician-info h3 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 13px;
+}
+
+.amh-clinician-info > p {
+  color: #78867d;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  line-height: 1.85;
+  margin: 0 0 20px;
+}
+
+/* CARD FOOTER */
+
+.amh-clinician-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #edf1ed;
+  color: #0d8950;
+}
+
+.amh-clinician-card-bottom span {
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.amh-clinician-card-bottom svg {
+  transition: transform 0.3s ease;
+}
+
+.amh-clinician-card:hover .amh-clinician-card-bottom svg {
+  transform: translate(3px, -3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .amh-clinicians-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .amh-clinician-image {
+    height: 340px;
+  }
+}
+
+@media (max-width: 650px) {
+  .amh-clinicians-section {
+    padding: 75px 5%;
+  }
+
+  .amh-clinicians-heading {
+    margin-bottom: 40px;
+  }
+
+  .amh-clinicians-grid {
+    grid-template-columns: 1fr;
+    max-width: 430px;
+    margin: 0 auto;
+    gap: 25px;
+  }
+
+  .amh-clinician-image {
+    height: 390px;
+  }
+
+  .amh-clinician-info {
+    padding: 23px;
+  }
+
+  .amh-clinician-info h3 {
+    font-size: 20px;
+  }
+
+  .amh-clinician-info > p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .amh-clinicians-heading h2 {
+    font-size: 33px;
+  }
+
+  .amh-clinician-image {
+    height: 340px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-clinician-card,
+  .amh-clinician-image img,
+  .amh-clinician-card-bottom svg {
+    transition: none;
+  }
+}

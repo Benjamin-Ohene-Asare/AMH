@@ -1,0 +1,613 @@
+
+/*
+ * =====================================================
+ * AHMADIYYA MUSLIM HOSPITAL — DABOASE
+ * COMPONENT: Header
+ * FILE: src/components/header/Header.css
+ * =====================================================
+ *
+ * DESIGN:
+ * Clean, professional hospital navigation.
+ * White background with green/yellow brand accents.
+ *
+ * TYPOGRAPHY:
+ * Poppins — Hospital name
+ * Inter   — Navigation, buttons, labels
+ *
+ * DEVELOPER NOTES:
+ * 1. Colors and fonts are defined in index.css.
+ * 2. Keep this header responsive.
+ * 3. Maintain the green/yellow bottom border.
+ * 4. Avoid adding unnecessary decorative text.
+ * 5. Preserve existing JSX class names.
+ * =====================================================
+ */
+
+/* ========================================
+   1. HEADER CONTAINER
+======================================== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-primary: "Poppins", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+}
+
+html,
+body,
+#root {
+  font-family: var(--font-primary);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-primary);
+}
+
+
+
+
+.amh-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+  background: var(--amh-white, #ffffff);
+
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #008a4b 0%,
+    #008a4b 70%,
+    #f5ad12 70%,
+    #f5ad12 100%
+  ) 1;
+
+  font-family: var(--font-primary, "Inter", sans-serif);
+}
+
+/* ========================================
+   2. INNER HEADER LAYOUT
+======================================== */
+
+.amh-header-inner {
+  max-width: var(--container-width, 1250px);
+  min-height: 95px;
+
+  margin: 0 auto;
+  padding: 14px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+/* ========================================
+   3. HOSPITAL BRANDING
+======================================== */
+
+.amh-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+/* Temporary hospital icon.
+   Replace with official logo when available. */
+
+.amh-brand > svg {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+/* Future official hospital logo */
+.amh-brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.amh-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.7px;
+
+  white-space: nowrap;
+}
+
+.amh-brand-yellow {
+  color: var(--amh-yellow, #f5ad12);
+}
+
+.amh-brand-green {
+  color: var(--amh-green, #008a4b);
+}
+
+.amh-brand-text small {
+  margin-top: 4px;
+
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+
+  color: var(--amh-text-muted, #64748b);
+}
+
+/* ========================================
+   4. DESKTOP NAVIGATION
+======================================== */
+
+.amh-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 23px;
+
+  margin-left: auto;
+}
+
+.amh-nav > a,
+.amh-more > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 10px 0;
+
+  background: transparent;
+  border: none;
+
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  color: var(--amh-text, #354047);
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: color 0.25s ease;
+}
+
+.amh-nav > a:hover,
+.amh-more > button:hover {
+  color: var(--amh-green, #008a4b);
+}
+
+/* ========================================
+   5. MORE DROPDOWN
+======================================== */
+
+.amh-more {
+  position: relative;
+}
+
+.amh-more > button {
+  gap: 5px;
+}
+
+.amh-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  min-width: 190px;
+  padding: 10px;
+
+  background: #ffffff;
+  border: 1px solid var(--amh-border, #e5e9e7);
+  border-radius: 8px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+
+  z-index: 1010;
+}
+
+.amh-dropdown a {
+  display: block;
+  padding: 11px 12px;
+
+  border-radius: 5px;
+
+  font-family: var(--font-primary, "Inter", sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+
+  color: var(--amh-text, #354047);
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.amh-dropdown a:hover {
+  background: var(--amh-light-green, #eaf7ef);
+  color: var(--amh-green, #008a4b);
+}
+
+/* ========================================
+   6. HEADER ACTION ICONS
+======================================== */
+
+.amh-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  flex-shrink: 0;
+}
+
+.amh-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 36px;
+
+  padding: 3px;
+  border: none;
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--amh-yellow, #f5ad12);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.amh-icon-button:not(:disabled):hover {
+  background: var(--amh-yellow-light, #fff6dc);
+  color: var(--amh-green, #008a4b);
+}
+
+.amh-icon-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   7. MOBILE MENU TOGGLE
+======================================== */
+
+.amh-mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 5px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: var(--amh-light-green, #eaf7ef);
+  color: var(--amh-green, #008a4b);
+
+  cursor: pointer;
+}
+
+/* ========================================
+   8. SMALLER DESKTOP SCREENS
+======================================== */
+
+@media (max-width: 1150px) {
+  .amh-header-inner {
+    padding: 14px 22px;
+    gap: 18px;
+  }
+
+  .amh-nav {
+    gap: 15px;
+  }
+
+  .amh-brand-text {
+    font-size: 21px;
+  }
+
+  .amh-brand > svg {
+    width: 37px;
+    height: 37px;
+  }
+
+  .amh-nav > a,
+  .amh-more > button {
+    font-size: 11px;
+  }
+}
+
+/* ========================================
+   9. TABLET AND MOBILE NAVIGATION
+======================================== */
+
+@media (max-width: 950px) {
+  .amh-header-inner {
+    min-height: 78px;
+    padding: 12px 20px;
+  }
+
+  .amh-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .amh-nav {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    max-height: calc(100vh - 85px);
+    overflow-y: auto;
+
+    margin: 0;
+    padding: 18px 20px 24px;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+
+    background: #ffffff;
+    border-bottom: 3px solid var(--amh-green, #008a4b);
+
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .amh-nav-open {
+    display: flex;
+  }
+
+  .amh-nav > a,
+  .amh-more > button {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 12px 14px;
+
+    justify-content: flex-start;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    border-radius: 6px;
+  }
+
+  .amh-nav > a:hover,
+  .amh-more > button:hover {
+    background: var(--amh-light-green, #eaf7ef);
+  }
+
+  .amh-more > button {
+    justify-content: space-between;
+  }
+
+  .amh-dropdown {
+    position: static;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 4px;
+    padding: 6px;
+
+    background: var(--amh-background-soft, #f7faf8);
+    border: none;
+    border-radius: 6px;
+
+    box-shadow: none;
+  }
+
+  .amh-dropdown a {
+    padding: 12px 14px;
+  }
+}
+
+/* ========================================
+   10. MOBILE SCREENS
+======================================== */
+
+@media (max-width: 600px) {
+  .amh-header-inner {
+    min-height: 72px;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .amh-brand {
+    gap: 8px;
+  }
+
+  .amh-brand > svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .amh-brand img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .amh-brand-text {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+  }
+
+  .amh-brand-text small {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+  }
+
+  .amh-header-actions {
+    gap: 7px;
+  }
+
+  .amh-icon-button {
+    width: 27px;
+    height: 32px;
+  }
+
+  .amh-icon-button svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .amh-mobile-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ========================================
+   11. VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+  .amh-brand-text {
+    font-size: 15px;
+  }
+
+  .amh-brand > svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .amh-header-actions {
+    gap: 4px;
+  }
+
+  .amh-icon-button {
+    width: 24px;
+  }
+}
+
+/* ========================================
+   12. ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-nav > a,
+  .amh-more > button,
+  .amh-dropdown a,
+  .amh-icon-button {
+    transition: none;
+  }
+}
+
+
+/* =====================================================
+   AMH RESPONSIVE LAYOUT FIX
+   Prevent horizontal overflow across the website.
+
+   Developer notes:
+   - Keep containers within the viewport.
+   - Allow flex and grid children to shrink.
+   - Do not use fixed widths larger than mobile screens.
+===================================================== */
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 320px;
+}
+
+#root {
+  overflow-x: clip;
+}
+
+*, 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 100%;
+}
+
+/* Responsive images and media */
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Prevent flexible children from forcing overflow */
+
+.amh-header-inner,
+.amh-hero-content,
+.amh-services-container,
+.amh-feature-card {
+  min-width: 0;
+}
+
+/* Ensure consistent typography */
+
+.amh-hero h1 {
+  font-family: var(--font-heading);
+}
+
+.amh-hero-description,
+.amh-feature-body p,
+.amh-hero-btn-primary,
+.amh-hero-btn-secondary {
+  font-family: var(--font-primary);
+}
+
+/* Responsive hero content */
+
+@media (max-width: 600px) {
+  .amh-hero-container {
+    width: 100%;
+    padding-inline: 18px;
+  }
+
+  .amh-hero h1 {
+    font-size: clamp(32px, 9vw, 48px);
+    overflow-wrap: break-word;
+  }
+
+  .amh-hero-description {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .amh-hero-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}

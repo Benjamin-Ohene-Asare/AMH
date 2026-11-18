@@ -1,0 +1,163 @@
+
+/* =========================================
+   APPOINTMENT CALL-TO-ACTION SECTION
+========================================= */
+
+.amh-appointment-cta {
+  width: 100%;
+  padding: 85px 24px;
+  background: #f8f7f1;
+  border-bottom: 1px solid #eae8dc;
+}
+
+.amh-cta-container {
+  max-width: 1150px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+/* CTA text */
+.amh-cta-content {
+  max-width: 650px;
+}
+
+.amh-cta-label {
+  display: inline-block;
+  margin-bottom: 17px;
+
+  color: #008a4b;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.amh-cta-content h2 {
+  margin: 0 0 17px;
+
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.amh-cta-content p {
+  max-width: 590px;
+  margin: 0;
+
+  color: #68736c;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* CTA buttons */
+.amh-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+}
+
+.amh-cta-primary,
+.amh-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 54px;
+  padding: 0 23px;
+
+  border-radius: 5px;
+  text-decoration: none;
+
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: all 0.3s ease;
+}
+
+/* Primary appointment button */
+.amh-cta-primary {
+  background: #008a4b;
+  color: #ffffff;
+  border: 1px solid #008a4b;
+}
+
+.amh-cta-primary:hover {
+  background: #073b2b;
+  border-color: #073b2b;
+  transform: translateY(-3px);
+}
+
+/* Secondary location button */
+.amh-cta-secondary {
+  background: #f5ad12;
+  color: #073b2b;
+  border: 1px solid #f5ad12;
+}
+
+.amh-cta-secondary:hover {
+  background: #e9a00a;
+  border-color: #e9a00a;
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 950px) {
+
+  .amh-cta-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+
+  .amh-appointment-cta {
+    padding: 65px 20px;
+  }
+
+  .amh-cta-container {
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .amh-cta-content h2 {
+    font-size: 34px;
+  }
+
+  .amh-cta-content p {
+    font-size: 14px;
+  }
+
+  .amh-cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .amh-cta-primary,
+  .amh-cta-secondary {
+    width: 100%;
+    min-height: 52px;
+  }
+
+}

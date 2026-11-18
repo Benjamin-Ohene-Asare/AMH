@@ -1,0 +1,374 @@
+
+/* =================================
+   EVENTS SECTION
+================================= */
+
+.amh-events-section {
+  position: relative;
+  padding: 110px 6%;
+  background:
+    radial-gradient(
+      circle at 5% 10%,
+      rgba(13, 137, 80, 0.045),
+      transparent 30%
+    ),
+    #ffffff;
+  overflow: hidden;
+}
+
+.amh-events-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* =================================
+   SECTION HEADING
+================================= */
+
+.amh-events-heading {
+  max-width: 760px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.amh-events-label {
+  display: inline-block;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-bottom: 17px;
+}
+
+.amh-events-heading h2 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 19px;
+}
+
+.amh-events-heading h2 span {
+  color: #0d8950;
+}
+
+.amh-events-heading p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #75827b;
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* =================================
+   EVENTS GRID
+================================= */
+
+.amh-events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.amh-event-reveal {
+  height: 100%;
+  display: flex;
+}
+
+/* =================================
+   EVENT CARD
+================================= */
+
+.amh-event-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid #e9efeb;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(7, 59, 43, 0.045);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.amh-event-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(13, 137, 80, 0.25);
+  box-shadow: 0 20px 42px rgba(7, 59, 43, 0.11);
+}
+
+/* =================================
+   EVENT IMAGE
+================================= */
+
+.amh-event-image {
+  position: relative;
+  width: 100%;
+  height: 225px;
+  background: #eaf1ed;
+  overflow: hidden;
+}
+
+.amh-event-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.amh-event-card:hover .amh-event-image img {
+  transform: scale(1.07);
+}
+
+.amh-event-image-overlay {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.2)
+  );
+  pointer-events: none;
+}
+
+/* DATE BADGE */
+
+.amh-event-date {
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  left: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  color: #073b2b;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 6px;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.amh-event-date svg {
+  color: #0d8950;
+}
+
+/* =================================
+   EVENT CONTENT
+================================= */
+
+.amh-event-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  padding: 24px 21px 23px;
+}
+
+.amh-event-category {
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.amh-event-content h3 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.45;
+  min-height: 52px;
+  margin: 0 0 17px;
+}
+
+.amh-event-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #849088;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  line-height: 1.7;
+  margin-bottom: 23px;
+}
+
+.amh-event-location svg {
+  flex-shrink: 0;
+  color: #0d8950;
+  margin-top: 2px;
+}
+
+/* =================================
+   EVENT LINK
+================================= */
+
+.amh-event-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #edf1ee;
+  color: #0d8950;
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.amh-event-link:hover {
+  color: #073b2b;
+}
+
+.amh-event-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
+  color: #0d8950;
+  background: #eaf5ee;
+  border-radius: 50%;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.amh-event-link:hover .amh-event-link-icon {
+  color: #ffffff;
+  background: #0d8950;
+  transform: rotate(45deg);
+}
+
+/* CARD BOTTOM ACCENT */
+
+.amh-event-card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #0d8950;
+  transition: width 0.4s ease;
+}
+
+.amh-event-card:hover .amh-event-card-accent {
+  width: 100%;
+}
+
+/* =================================
+   BOTTOM MESSAGE
+================================= */
+
+.amh-events-footer {
+  margin-top: 55px;
+  padding-top: 25px;
+  border-top: 1px solid #e9efeb;
+  text-align: center;
+}
+
+.amh-events-footer p {
+  color: #7b8982;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1100px) {
+  .amh-events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .amh-event-image {
+    height: 260px;
+  }
+}
+
+@media (max-width: 650px) {
+  .amh-events-section {
+    padding: 75px 5%;
+  }
+
+  .amh-events-heading {
+    margin-bottom: 42px;
+  }
+
+  .amh-events-heading h2 {
+    font-size: 34px;
+  }
+
+  .amh-events-heading p {
+    font-size: 13px;
+  }
+
+  .amh-events-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .amh-event-image {
+    height: 250px;
+  }
+
+  .amh-event-content {
+    padding: 23px 21px;
+  }
+
+  .amh-event-content h3 {
+    font-size: 19px;
+    min-height: auto;
+  }
+
+  .amh-events-footer {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .amh-events-heading h2 {
+    font-size: 29px;
+  }
+
+  .amh-event-image {
+    height: 220px;
+  }
+}
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-event-card,
+  .amh-event-image img,
+  .amh-event-link,
+  .amh-event-link-icon,
+  .amh-event-card-accent {
+    transition: none;
+  }
+}

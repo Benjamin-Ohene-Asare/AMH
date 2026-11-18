@@ -1,0 +1,291 @@
+
+.amh-mission-vision {
+  padding: 105px 6%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.amh-mv-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+
+.amh-mv-heading {
+  max-width: 650px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.amh-mv-heading > span,
+.amh-mv-values-heading > span {
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-mv-heading h2 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4.5vw, 51px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  margin: 17px 0;
+}
+
+.amh-mv-heading h2 span {
+  color: #0d8950;
+}
+
+.amh-mv-heading p {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #78867d;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* MISSION AND VISION PANELS */
+
+.amh-mv-panels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.amh-mv-panel {
+  position: relative;
+  min-height: 330px;
+  padding: 42px;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.35s ease;
+}
+
+.amh-mv-panel:hover {
+  transform: translateY(-7px);
+}
+
+.amh-mv-mission {
+  background: #073b2b;
+  color: #ffffff;
+}
+
+.amh-mv-vision {
+  background: #eff6f0;
+  color: #073b2b;
+}
+
+.amh-mv-icon {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-radius: 50%;
+}
+
+.amh-mv-mission .amh-mv-icon {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.amh-mv-vision .amh-mv-icon {
+  color: #0d8950;
+  background: #dceee1;
+}
+
+.amh-mv-panel-label {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.amh-mv-mission .amh-mv-panel-label {
+  color: #a9dfbb;
+}
+
+.amh-mv-vision .amh-mv-panel-label {
+  color: #0d8950;
+}
+
+.amh-mv-panel h3 {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 17px;
+}
+
+.amh-mv-panel p {
+  max-width: 450px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.amh-mv-mission p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.amh-mv-vision p {
+  color: #68786e;
+}
+
+.amh-mv-panel-line {
+  width: 60px;
+  height: 4px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.amh-mv-mission .amh-mv-panel-line {
+  background: #a9dfbb;
+}
+
+.amh-mv-vision .amh-mv-panel-line {
+  background: #0d8950;
+}
+
+/* VALUES */
+
+.amh-mv-values-section {
+  margin-top: 100px;
+}
+
+.amh-mv-values-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.amh-mv-values-heading h3 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.amh-mv-values-heading p {
+  color: #78867d;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  margin: 0;
+}
+
+.amh-mv-values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 17px;
+}
+
+.amh-mv-value-card {
+  height: 100%;
+  padding: 27px 19px;
+  background: #f7faf7;
+  border: 1px solid #eaf0eb;
+  border-radius: 7px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.amh-mv-value-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(7, 59, 43, 0.08);
+}
+
+.amh-mv-value-icon {
+  width: 53px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #0d8950;
+  background: #e7f2e9;
+  border-radius: 50%;
+}
+
+.amh-mv-value-card h4 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 11px;
+}
+
+.amh-mv-value-card p {
+  color: #829087;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .amh-mv-values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .amh-mv-panel {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 700px) {
+  .amh-mission-vision {
+    padding: 75px 5%;
+  }
+
+  .amh-mv-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .amh-mv-panel {
+    min-height: 290px;
+  }
+
+  .amh-mv-values-section {
+    margin-top: 70px;
+  }
+
+  .amh-mv-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .amh-mv-heading h2 {
+    font-size: 35px;
+  }
+
+  .amh-mv-panel {
+    padding: 27px;
+  }
+
+  .amh-mv-panel h3 {
+    font-size: 25px;
+  }
+
+  .amh-mv-values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-mv-panel,
+  .amh-mv-value-card {
+    transition: none;
+  }
+}

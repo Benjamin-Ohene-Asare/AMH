@@ -1,0 +1,366 @@
+
+/*
+ * =====================================================
+ * AHMADIYYA MUSLIM HOSPITAL
+ * PREMIUM FEATURED SERVICE CARDS
+ * =====================================================
+ *
+ * Desktop: Three-column floating card layout
+ * Mobile: Stacked cards
+ * Main colors: Green, yellow and white
+ *
+ * Cards overlap the bottom of the hero section.
+ * =====================================================
+ */
+
+.amh-hero-services {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-top: -95px;
+  padding: 0 24px 80px;
+  pointer-events: none;
+}
+
+.amh-services-container {
+  max-width: 1190px;
+  margin: 0 auto;
+  pointer-events: auto;
+}
+
+/* Card grid */
+.amh-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Individual service card */
+.amh-feature-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 305px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    #008a4b 0%,
+    #006b3b 60%,
+    #06482f 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  box-shadow:
+    0 15px 35px rgba(0, 65, 37, 0.18),
+    0 5px 12px rgba(0, 0, 0, 0.06);
+
+  color: #ffffff;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.amh-feature-card:nth-child(2) {
+  background: linear-gradient(
+    145deg,
+    #087d51 0%,
+    #075e43 65%,
+    #063e32 100%
+  );
+}
+
+.amh-feature-card:nth-child(3) {
+  background: linear-gradient(
+    145deg,
+    #06794b 0%,
+    #075839 60%,
+    #053b2b 100%
+  );
+}
+
+.amh-feature-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 25px 50px rgba(0, 65, 37, 0.24),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Decorative gradient circle */
+.amh-feature-decoration {
+  position: absolute;
+  z-index: -1;
+
+  width: 210px;
+  height: 210px;
+  right: -95px;
+  top: -90px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(245, 173, 18, 0.18),
+    transparent 72%
+  );
+
+  pointer-events: none;
+}
+
+/* Card upper area */
+.amh-feature-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 28px;
+}
+
+/* Floating icon */
+.amh-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+
+  color: #ffd05a;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.amh-feature-card:hover .amh-feature-icon {
+  transform: rotate(-7deg) scale(1.07);
+  background: rgba(245, 173, 18, 0.18);
+}
+
+/* Small service number */
+.amh-feature-number {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Card content */
+.amh-feature-body {
+  flex: 1;
+}
+
+.amh-feature-body h3 {
+  margin: 0 0 14px;
+  max-width: 290px;
+
+  font-family: var(--font-primary, Arial, sans-serif);
+  font-size: clamp(20px, 1.8vw, 25px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+
+  color: #ffffff;
+}
+
+.amh-feature-body p {
+  margin: 0 0 24px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* Card bottom link */
+.amh-feature-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-top: auto;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: #ffce52;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: color 0.25s ease;
+}
+
+.amh-feature-link:hover {
+  color: #ffffff;
+}
+
+/* Circular arrow */
+.amh-feature-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.13);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.amh-feature-card:hover .amh-feature-arrow {
+  transform: rotate(45deg);
+  background: rgba(245, 173, 18, 0.25);
+}
+
+/* Tablet */
+@media (max-width: 1050px) {
+  .amh-services-grid {
+    gap: 15px;
+  }
+
+  .amh-feature-card {
+    padding: 24px;
+  }
+
+  .amh-feature-body h3 {
+    font-size: 20px;
+  }
+}
+
+/* Stack cards before they become too narrow */
+@media (max-width: 760px) {
+  .amh-hero-services {
+    margin-top: -55px;
+    padding: 0 18px 60px;
+  }
+
+  .amh-services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .amh-feature-card {
+    min-height: 250px;
+    padding: 25px;
+  }
+
+  .amh-feature-top {
+    margin-bottom: 20px;
+  }
+
+  .amh-feature-body h3 {
+    max-width: none;
+    font-size: 22px;
+  }
+
+  .amh-feature-body p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-feature-card,
+  .amh-feature-icon,
+  .amh-feature-arrow,
+  .amh-feature-link {
+    transition: none;
+  }
+
+  .amh-feature-card:hover {
+    transform: none;
+  }
+}
+
+
+/* ==========================================
+   COMPACT HERO SERVICE CARDS
+   Reduces excessive height and empty spaces.
+   Developer note: Keep cards compact.
+========================================== */
+
+.amh-feature-card {
+  min-height: 230px;
+  padding: 22px 25px;
+}
+
+.amh-feature-top {
+  margin-bottom: 15px;
+}
+
+.amh-feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.amh-feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.amh-feature-body h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.amh-feature-body p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.amh-feature-link {
+  padding-top: 12px;
+  font-size: 12px;
+}
+
+.amh-feature-arrow {
+  width: 30px;
+  height: 30px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .amh-feature-card {
+    min-height: 210px;
+    padding: 20px;
+  }
+
+  .amh-feature-top {
+    margin-bottom: 12px;
+  }
+
+  .amh-feature-body h3 {
+    font-size: 18px;
+  }
+
+  .amh-feature-body p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+}

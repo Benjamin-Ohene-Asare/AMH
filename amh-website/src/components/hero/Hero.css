@@ -1,0 +1,357 @@
+
+/*
+ * =====================================================
+ * AHMADIYYA MUSLIM HOSPITAL
+ * HERO SECTION - CENTERED LAYOUT
+ * =====================================================
+ *
+ * DESIGN:
+ * Full-width hospital photograph.
+ * Centered heading, description and buttons.
+ * Dark-green overlay with yellow highlights.
+ *
+ * RESPONSIVE:
+ * Desktop, tablet and mobile.
+ * =====================================================
+ */
+
+.amh-hero {
+  position: relative;
+  width: 100%;
+  min-height: 650px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  color: #ffffff;
+  background-color: #073b2b;
+}
+
+/* ========================================
+   BACKGROUND IMAGE
+======================================== */
+
+.amh-hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ========================================
+   DARK GREEN IMAGE OVERLAY
+======================================== */
+
+.amh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(2, 39, 28, 0.82) 0%,
+    rgba(2, 44, 32, 0.72) 50%,
+    rgba(2, 39, 28, 0.67) 100%
+  );
+}
+
+/* ========================================
+   MAIN CENTERED CONTAINER
+======================================== */
+
+.amh-hero-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+
+  padding: 110px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.amh-hero-content {
+  width: 100%;
+  max-width: 800px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+/* ========================================
+   WELCOME LABEL
+======================================== */
+
+.amh-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-bottom: 25px;
+
+  color: #ffce4e;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+/* ========================================
+   MAIN HERO HEADING
+======================================== */
+
+.amh-hero h1 {
+  margin: 0;
+  padding: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(45px, 5.8vw, 78px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2px;
+
+  text-align: center;
+}
+
+.amh-hero h1 span {
+  color: #ffc43d;
+}
+
+/* ========================================
+   INTRODUCTORY DESCRIPTION
+======================================== */
+
+.amh-hero-description {
+  max-width: 650px;
+
+  margin: 28px auto 0;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+
+  text-align: center;
+}
+
+/* ========================================
+   ACTION BUTTON CONTAINER
+======================================== */
+
+.amh-hero-actions {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 16px;
+  margin-top: 38px;
+}
+
+/* Shared button styling */
+.amh-hero-btn-primary,
+.amh-hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 53px;
+  padding: 14px 26px;
+
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Primary yellow button */
+.amh-hero-btn-primary {
+  background: #f5ad12;
+  color: #123c2b;
+  border: 1px solid #f5ad12;
+}
+
+.amh-hero-btn-primary:hover {
+  background: #ffca45;
+  border-color: #ffca45;
+  transform: translateY(-2px);
+}
+
+/* Secondary transparent button */
+.amh-hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.amh-hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   BOTTOM GREEN / YELLOW ACCENT
+======================================== */
+
+.amh-hero-bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #008a4b 0%,
+    #008a4b 70%,
+    #f5ad12 70%,
+    #f5ad12 100%
+  );
+}
+
+/* ========================================
+   TABLET RESPONSIVENESS
+======================================== */
+
+@media (max-width: 900px) {
+  .amh-hero {
+    min-height: 580px;
+  }
+
+  .amh-hero-container {
+    padding: 90px 25px;
+  }
+
+  .amh-hero-content {
+    max-width: 700px;
+  }
+
+  .amh-hero h1 {
+    font-size: clamp(44px, 7vw, 65px);
+  }
+
+  .amh-hero-description {
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 600px) {
+  .amh-hero {
+    min-height: 600px;
+  }
+
+  .amh-hero-container {
+    padding: 75px 20px 85px;
+  }
+
+  .amh-hero-content {
+    max-width: 100%;
+  }
+
+  .amh-hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .amh-hero h1 {
+    font-size: clamp(39px, 9vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  .amh-hero-description {
+    max-width: 100%;
+    margin-top: 22px;
+
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .amh-hero-actions {
+    margin-top: 30px;
+    gap: 12px;
+  }
+
+  .amh-hero-btn-primary,
+  .amh-hero-btn-secondary {
+    min-height: 48px;
+    padding: 12px 18px;
+
+    font-size: 13px;
+  }
+
+  .amh-hero-overlay {
+    background: rgba(2, 38, 27, 0.78);
+  }
+}
+
+/* ========================================
+   SMALL MOBILE DEVICES
+======================================== */
+
+@media (max-width: 380px) {
+  .amh-hero h1 {
+    font-size: 37px;
+  }
+
+  .amh-hero-eyebrow {
+    font-size: 9px;
+  }
+
+  .amh-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .amh-hero-btn-primary,
+  .amh-hero-btn-secondary {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-hero-btn-primary,
+  .amh-hero-btn-secondary {
+    transition: none;
+  }
+}

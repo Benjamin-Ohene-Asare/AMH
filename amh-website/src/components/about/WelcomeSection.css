@@ -1,0 +1,375 @@
+
+.amh-welcome-section {
+  position: relative;
+  padding: 110px 6% 100px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.amh-welcome-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 85px;
+}
+
+/* IMAGE AREA */
+
+.amh-welcome-visual {
+  position: relative;
+  min-width: 0;
+  padding: 0 25px 25px 0;
+}
+
+.amh-welcome-image {
+  position: relative;
+  height: 570px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px 100px 8px 8px;
+  background: #eaf1ec;
+  z-index: 1;
+}
+
+.amh-welcome-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+
+.amh-welcome-image:hover img {
+  transform: scale(1.04);
+}
+
+/* IMAGE OVERLAY */
+
+.amh-welcome-image-overlay {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 25px;
+  bottom: 25px;
+  padding: 35px 30px;
+  color: #ffffff;
+  background: linear-gradient(
+    0deg,
+    rgba(3, 42, 29, 0.95),
+    rgba(3, 42, 29, 0.02)
+  );
+}
+
+.amh-welcome-image-overlay > span {
+  display: block;
+  color: #b6e2c5;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 9px;
+}
+
+.amh-welcome-image-overlay h3 {
+  max-width: 330px;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* IMAGE DECORATION */
+
+.amh-welcome-image-accent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 170px;
+  height: 170px;
+  border-right: 5px solid #0d8950;
+  border-bottom: 5px solid #0d8950;
+  border-radius: 0 0 10px 0;
+}
+
+/* CONTENT */
+
+.amh-welcome-content {
+  width: 100%;
+}
+
+.amh-welcome-label {
+  display: inline-block;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.amh-welcome-content h2 {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4.2vw, 54px);
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -1.7px;
+  margin: 0 0 25px;
+}
+
+.amh-welcome-content h2 span {
+  color: #0d8950;
+}
+
+.amh-welcome-content > p {
+  color: #6f7c74;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.95;
+  margin: 0 0 16px;
+}
+
+/* MISSION QUOTE */
+
+.amh-welcome-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 27px 0;
+  padding: 20px 22px;
+  background: #f0f7f2;
+  border-left: 3px solid #0d8950;
+}
+
+.amh-welcome-quote-mark {
+  color: #0d8950;
+  font-family: Georgia, serif;
+  font-size: 49px;
+  line-height: 0.9;
+}
+
+.amh-welcome-quote div p {
+  color: #174b36;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 0 0 8px;
+}
+
+.amh-welcome-quote div span {
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.amh-welcome-content > .amh-welcome-closing {
+  color: #174b36;
+  font-weight: 500;
+}
+
+/* LINK */
+
+.amh-welcome-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  padding-bottom: 7px;
+  color: #0d8950;
+  border-bottom: 1px solid #0d8950;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: gap 0.3s ease;
+}
+
+.amh-welcome-link:hover {
+  gap: 19px;
+}
+
+/* HIGHLIGHTS */
+
+.amh-welcome-highlights {
+  max-width: 1240px;
+  margin: 85px auto 0;
+  padding-top: 35px;
+  border-top: 1px solid #e9efeb;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.amh-welcome-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  min-height: 75px;
+  padding: 10px 20px;
+  border-right: 1px solid #e9efeb;
+}
+
+.amh-welcome-highlight:last-child {
+  border-right: none;
+}
+
+.amh-welcome-highlight-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d8950;
+  background: #edf6f0;
+  border-radius: 50%;
+}
+
+.amh-welcome-highlight > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.amh-welcome-highlight strong {
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.amh-welcome-highlight span {
+  color: #829087;
+  font-family: var(--font-primary);
+  font-size: 11px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .amh-welcome-section {
+    padding: 85px 5%;
+  }
+
+  .amh-welcome-container {
+    gap: 45px;
+  }
+
+  .amh-welcome-image {
+    height: 510px;
+  }
+
+  .amh-welcome-content h2 {
+    font-size: 42px;
+  }
+
+  .amh-welcome-highlight {
+    padding: 10px;
+    gap: 11px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  .amh-welcome-section {
+    padding: 75px 5%;
+  }
+
+  .amh-welcome-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .amh-welcome-visual {
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .amh-welcome-image {
+    height: 430px;
+    border-radius: 8px 85px 8px 8px;
+  }
+
+  .amh-welcome-content h2 {
+    font-size: 42px;
+  }
+
+  .amh-welcome-highlights {
+    margin-top: 55px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .amh-welcome-highlight {
+    justify-content: flex-start;
+    border-right: none;
+    border-bottom: 1px solid #e9efeb;
+    padding: 15px 5px;
+  }
+
+  .amh-welcome-highlight:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .amh-welcome-section {
+    padding: 60px 5%;
+  }
+
+  .amh-welcome-image {
+    height: 350px;
+    border-radius: 7px 65px 7px 7px;
+  }
+
+  .amh-welcome-image-overlay {
+    right: 20px;
+    bottom: 20px;
+    padding: 25px 20px;
+  }
+
+  .amh-welcome-image-overlay h3 {
+    font-size: 19px;
+  }
+
+  .amh-welcome-content h2 {
+    font-size: 36px;
+  }
+
+  .amh-welcome-content > p {
+    font-size: 12px;
+  }
+
+  .amh-welcome-quote {
+    padding: 17px;
+  }
+
+  .amh-welcome-quote div p {
+    font-size: 12px;
+  }
+
+  .amh-welcome-highlight strong {
+    font-size: 17px;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .amh-welcome-image img,
+  .amh-welcome-link {
+    transition: none;
+  }
+}

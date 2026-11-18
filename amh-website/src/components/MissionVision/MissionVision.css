@@ -1,0 +1,407 @@
+
+/* =========================================
+   MISSION, VISION & CORE VALUES
+========================================= */
+
+.amh-purpose {
+  position: relative;
+  padding: 105px 0;
+  background: #f5f8f5;
+  overflow: hidden;
+}
+
+.amh-purpose-container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.amh-purpose-heading {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.amh-purpose-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #087b4b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.3px;
+}
+
+.amh-purpose-heading h2,
+.amh-values-heading h2 {
+  margin: 0 0 17px;
+  color: #173c2b;
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.amh-purpose-heading h2 span {
+  color: #087b4b;
+}
+
+.amh-purpose-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #718078;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   VISION & MISSION PANELS
+========================================= */
+
+.amh-purpose-top {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 22px;
+  margin-bottom: 100px;
+}
+
+.amh-vision-card,
+.amh-mission-card {
+  position: relative;
+  min-height: 340px;
+  padding: 42px 38px;
+  overflow: hidden;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.amh-vision-card {
+  background: #ffffff;
+  border: 1px solid #e6ece7;
+}
+
+.amh-mission-card {
+  background: linear-gradient(
+    120deg,
+    #16452f,
+    #07633d,
+    #08794a
+  );
+  color: #ffffff;
+}
+
+/* Panel decorative circles */
+
+.amh-vision-card::after,
+.amh-mission-card::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -110px;
+  bottom: -145px;
+  border: 1px solid rgba(8, 123, 75, 0.12);
+  border-radius: 50%;
+}
+
+.amh-mission-card::after {
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+/* Icons */
+
+.amh-purpose-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-radius: 50%;
+  color: #087b4b;
+  background: #e9f2eb;
+}
+
+.amh-mission-card .amh-purpose-icon {
+  color: #e4cd91;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.amh-purpose-card-label {
+  margin-bottom: 12px;
+  color: #087b4b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.amh-mission-card .amh-purpose-card-label {
+  color: #e5ce93;
+}
+
+/* Panel content */
+
+.amh-vision-card h3,
+.amh-mission-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 17px;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.6px;
+}
+
+.amh-vision-card h3 {
+  color: #173c2b;
+}
+
+.amh-mission-card h3 {
+  color: #ffffff;
+}
+
+.amh-vision-card p,
+.amh-mission-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.amh-vision-card p {
+  color: #6d7b72;
+}
+
+.amh-mission-card p {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* Gold decorative line */
+
+.amh-purpose-card-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75px;
+  height: 4px;
+  background: #c6a65a;
+}
+
+/* =========================================
+   CORE VALUES HEADING
+========================================= */
+
+.amh-values-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 38px;
+}
+
+.amh-values-heading h2 {
+  margin: 0;
+}
+
+.amh-values-heading > p {
+  max-width: 400px;
+  margin: 0 0 5px;
+  color: #718078;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CORE VALUES GRID
+========================================= */
+
+.amh-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.amh-value-card {
+  position: relative;
+  min-height: 275px;
+  padding: 28px 25px 35px;
+  background: #ffffff;
+  border: 1px solid #e7ede8;
+  border-radius: 4px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.amh-value-card:hover {
+  transform: translateY(-6px);
+  border-color: #c8ddce;
+  box-shadow: 0 16px 35px rgba(18, 66, 42, 0.07);
+}
+
+.amh-value-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.amh-value-icon {
+  width: 51px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #087b4b;
+  background: #e9f2eb;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.amh-value-card:hover .amh-value-icon {
+  color: #ffffff;
+  background: #087b4b;
+}
+
+.amh-value-top > span {
+  color: #c6a65a;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.amh-value-card h3 {
+  margin: 0 0 12px;
+  color: #173c2b;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.amh-value-card p {
+  margin: 0;
+  color: #718078;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.amh-value-bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #c6a65a;
+  transition: width 0.4s ease;
+}
+
+.amh-value-card:hover .amh-value-bottom-line {
+  width: 100%;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .amh-purpose {
+    padding: 85px 0;
+  }
+
+  .amh-purpose-top {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 75px;
+  }
+
+  .amh-vision-card,
+  .amh-mission-card {
+    padding: 32px 25px;
+  }
+
+  .amh-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .amh-purpose {
+    padding: 70px 0;
+  }
+
+  .amh-purpose-container {
+    width: 89%;
+  }
+
+  .amh-purpose-heading {
+    margin-bottom: 40px;
+  }
+
+  .amh-purpose-heading h2,
+  .amh-values-heading h2 {
+    font-size: 34px;
+    letter-spacing: -1px;
+  }
+
+  .amh-purpose-heading p {
+    font-size: 14px;
+  }
+
+  .amh-purpose-top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 65px;
+  }
+
+  .amh-vision-card,
+  .amh-mission-card {
+    min-height: 300px;
+    padding: 30px 25px;
+  }
+
+  .amh-vision-card h3,
+  .amh-mission-card h3 {
+    font-size: 24px;
+  }
+
+  .amh-vision-card p,
+  .amh-mission-card p {
+    font-size: 14px;
+  }
+
+  .amh-values-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .amh-values-heading > p {
+    margin-top: 15px;
+  }
+
+  .amh-values-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .amh-value-card {
+    min-height: auto;
+    padding: 25px 22px 30px;
+  }
+
+  .amh-value-card p {
+    font-size: 13px;
+  }
+}

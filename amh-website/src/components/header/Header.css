@@ -1,0 +1,339 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --amh-primary:#073b2b ;
+  --amh-dark:#073b2b ;
+  --amh-light: #d9f1f0;
+  --amh-text: #28343a;
+  --amh-white: #ffffff;
+}
+
+.amh-header {
+  width: 100%;
+  background: var(--amh-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+/* TOP BAR */
+
+.amh-topbar {
+  width: 100%;
+  background: var(--amh-primary);
+  color: white;
+}
+
+.amh-topbar-inner {
+  max-width: 1250px;
+  min-height: 33px;
+  margin: auto;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.amh-emergency {
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.amh-emergency:hover {
+  opacity: 0.8;
+}
+
+/* MAIN HEADER */
+
+.amh-header-inner {
+  max-width: 1250px;
+  min-height: 73px;
+  margin: auto;
+  padding: 8px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+/* BRAND */
+
+.amh-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.amh-logo {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: var(--amh-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 800;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.amh-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.amh-brand-text strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #202a30;
+  white-space: nowrap;
+}
+
+.amh-brand-text small {
+  font-size: 12px;
+  color: #78858b;
+}
+
+/* NAVIGATION */
+
+.amh-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.amh-nav-item {
+  position: relative;
+}
+
+.amh-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 11px 14px;
+  color: var(--amh-text);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.amh-nav-link:hover {
+  color: var(--amh-primary);
+  background: #f0f8f8;
+}
+
+.amh-nav-link.active {
+  background: var(--amh-light);
+  color: var(--amh-primary);
+}
+
+/* DEPARTMENT DROPDOWN */
+
+.amh-dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  min-width: 190px;
+  background: white;
+  border-radius: 7px;
+  padding: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.amh-dropdown a {
+  display: block;
+  padding: 11px;
+  color: var(--amh-text);
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.amh-dropdown a:hover {
+  background: var(--amh-light);
+  color: var(--amh-primary);
+}
+
+/* APPOINTMENT BUTTON */
+
+.amh-appointment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--amh-primary);
+  color: white;
+  padding: 11px 17px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+
+.amh-appointment:hover {
+  background: var(--amh-dark);
+}
+
+.amh-appointment-mobile {
+  display: none;
+}
+
+/* MOBILE TOGGLE */
+
+.amh-mobile-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--amh-primary);
+  cursor: pointer;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+  .amh-header-inner {
+    gap: 12px;
+    padding: 8px 18px;
+  }
+
+  .amh-nav-link {
+    padding: 10px 9px;
+    font-size: 13px;
+  }
+
+  .amh-brand-text strong {
+    font-size: 14px;
+  }
+
+  .amh-appointment {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+  .amh-header-inner {
+    min-height: 75px;
+  }
+
+  .amh-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .amh-appointment {
+    display: none;
+  }
+
+  .amh-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 15px 20px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+
+  .amh-nav.amh-nav-open {
+    display: flex;
+  }
+
+  .amh-nav-link {
+    width: 100%;
+    justify-content: space-between;
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .amh-dropdown {
+    position: static;
+    box-shadow: none;
+    background: #f5fafa;
+    margin: 5px 0;
+  }
+
+  .amh-appointment-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 13px;
+    border-radius: 6px;
+    background: var(--amh-primary);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 480px) {
+  .amh-topbar-inner {
+    padding: 8px 12px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .amh-emergency {
+    font-size: 10px;
+  }
+
+  .amh-header-inner {
+    padding: 9px 14px;
+    min-height: 68px;
+  }
+
+  .amh-logo {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .amh-brand {
+    gap: 9px;
+  }
+
+  .amh-brand-text strong {
+    font-size: 13px;
+  }
+
+  .amh-brand-text small {
+    font-size: 11px;
+  }
+}

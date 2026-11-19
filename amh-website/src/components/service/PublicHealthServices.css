@@ -1,0 +1,304 @@
+
+.amh-public-health-section {
+  padding: 110px 6%;
+  background: #f5f8f6;
+  overflow: hidden;
+}
+
+.amh-public-health-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.amh-public-health-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 55px;
+}
+
+.amh-public-health-label {
+  display: inline-block;
+  margin-bottom: 17px;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-public-health-heading h2 {
+  margin: 0;
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4.5vw, 53px);
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.amh-public-health-heading h2 span {
+  color: #0d8950;
+}
+
+.amh-public-health-heading > p {
+  max-width: 440px;
+  margin: 0 0 5px;
+  color: #718078;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.95;
+}
+
+.amh-public-health-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.amh-public-health-visual {
+  position: relative;
+  min-width: 0;
+}
+
+.amh-public-health-image {
+  position: relative;
+  height: 530px;
+  overflow: hidden;
+  border-radius: 12px 150px 12px 12px;
+  background: #073b2b;
+  z-index: 1;
+}
+
+.amh-public-health-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.amh-public-health-image:hover img {
+  transform: scale(1.05);
+}
+
+.amh-public-health-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(3, 38, 27, 0.88),
+    rgba(3, 38, 27, 0.05) 70%
+  );
+}
+
+.amh-public-health-image-caption {
+  position: absolute;
+  right: 28px;
+  bottom: 32px;
+  left: 28px;
+  color: #fff;
+}
+
+.amh-public-health-image-caption span {
+  display: block;
+  margin-bottom: 12px;
+  color: #e3c77f;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-public-health-image-caption h3 {
+  max-width: 330px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 25px;
+  line-height: 1.4;
+}
+
+.amh-public-health-image-decoration {
+  position: absolute;
+  top: 20px;
+  right: -18px;
+  bottom: -18px;
+  left: 18px;
+  border: 1px solid #d7b86a;
+  border-radius: 12px 150px 12px 12px;
+  z-index: 0;
+}
+
+.amh-public-health-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.amh-public-health-item {
+  display: grid;
+  grid-template-columns: 35px 52px 1fr 20px;
+  align-items: center;
+  gap: 15px;
+  padding: 29px 0;
+  border-bottom: 1px solid #dce6df;
+}
+
+.amh-public-health-item:first-child {
+  border-top: 1px solid #dce6df;
+}
+
+.amh-public-health-item-number {
+  color: #a2b4a8;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.amh-public-health-item-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d8950;
+  background: #e3f0e8;
+  border-radius: 50%;
+}
+
+.amh-public-health-item-content h3 {
+  margin: 0 0 9px;
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.amh-public-health-item-content p {
+  margin: 0;
+  color: #718078;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+.amh-public-health-item-arrow {
+  color: #0d8950;
+  transition: transform 0.3s ease;
+}
+
+.amh-public-health-item:hover .amh-public-health-item-arrow {
+  transform: translate(3px, -3px);
+}
+
+.amh-public-health-bottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 850px;
+  margin: 50px auto 0;
+}
+
+.amh-public-health-bottom-line {
+  flex-shrink: 0;
+  width: 4px;
+  height: 40px;
+  background: #d7b86a;
+  border-radius: 5px;
+}
+
+.amh-public-health-bottom p {
+  margin: 0;
+  color: #53645a;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@media (max-width: 950px) {
+  .amh-public-health-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .amh-public-health-layout {
+    gap: 35px;
+  }
+
+  .amh-public-health-item {
+    grid-template-columns: 25px 45px 1fr;
+    gap: 12px;
+  }
+
+  .amh-public-health-item-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .amh-public-health-section {
+    padding: 75px 5%;
+  }
+
+  .amh-public-health-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .amh-public-health-heading h2 {
+    font-size: 37px;
+  }
+
+  .amh-public-health-image {
+    height: 420px;
+    border-radius: 12px 100px 12px 12px;
+  }
+
+  .amh-public-health-image-decoration {
+    border-radius: 12px 100px 12px 12px;
+  }
+
+  .amh-public-health-item {
+    grid-template-columns: 30px 48px 1fr 18px;
+    gap: 12px;
+    padding: 23px 0;
+  }
+
+  .amh-public-health-item-arrow {
+    display: block;
+  }
+}
+
+@media (max-width: 420px) {
+  .amh-public-health-heading h2 {
+    font-size: 32px;
+  }
+
+  .amh-public-health-image {
+    height: 350px;
+  }
+
+  .amh-public-health-item {
+    grid-template-columns: 25px 42px 1fr;
+    gap: 10px;
+  }
+
+  .amh-public-health-item-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .amh-public-health-item-arrow {
+    display: none;
+  }
+
+  .amh-public-health-item-content h3 {
+    font-size: 15px;
+  }
+
+  .amh-public-health-item-content p {
+    font-size: 11px;
+  }
+}

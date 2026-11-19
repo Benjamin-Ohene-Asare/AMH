@@ -1,0 +1,720 @@
+
+/* ==========================================
+   AMH BOOKING PAGE — ISOLATED STYLES
+========================================== */
+
+.amh-booking-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  color: #183b30;
+  font-family: var(--font-primary);
+}
+
+.amh-booking-page *,
+.amh-booking-page *::before,
+.amh-booking-page *::after {
+  box-sizing: border-box;
+}
+
+.amh-booking-container {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.amh-booking-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 340px;
+  overflow: hidden;
+  background: linear-gradient(
+    110deg,
+    #03281c 0%,
+    #073b2b 60%,
+    #0d8950 100%
+  );
+}
+
+.amh-booking-hero::after {
+  content: "";
+  position: absolute;
+  top: -190px;
+  right: -100px;
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.amh-booking-hero .amh-booking-container {
+  position: relative;
+  z-index: 1;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.amh-booking-hero h1 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.amh-booking-hero p {
+  max-width: 650px;
+  margin: 0 0 23px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.amh-booking-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+.amh-booking-breadcrumb a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.amh-booking-breadcrumb a:hover {
+  color: #b8e8ce;
+}
+
+/* ==========================================
+   MAIN SECTION
+========================================== */
+
+.amh-booking-section {
+  padding: 85px 0;
+  background: #f7faf8;
+}
+
+.amh-booking-intro {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.amh-booking-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #0d8950;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-booking-intro h2 {
+  margin: 0 0 14px;
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(29px, 3.5vw, 42px);
+  line-height: 1.25;
+}
+
+.amh-booking-intro p {
+  margin: 0;
+  color: #738078;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   MAIN TWO-COLUMN GRID
+========================================== */
+
+.amh-booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: 30px;
+}
+
+.amh-booking-image-column,
+.amh-booking-form-column {
+  min-width: 0;
+  width: 100%;
+}
+
+/* ==========================================
+   IMAGE PANEL
+========================================== */
+
+.amh-booking-image-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 690px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #073b2b;
+}
+
+.amh-booking-photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.amh-booking-image-shade {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 34px;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 35, 25, 0.02) 0%,
+    rgba(3, 35, 25, 0.15) 40%,
+    rgba(3, 35, 25, 0.9) 100%
+  );
+}
+
+.amh-booking-image-copy > span {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #b8e8ce;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-booking-image-copy h2 {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 700;
+  line-height: 1.17;
+}
+
+.amh-booking-image-copy p {
+  max-width: 370px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.amh-booking-image-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+}
+
+.amh-booking-image-note-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.amh-booking-image-note strong,
+.amh-booking-image-note span {
+  display: block;
+}
+
+.amh-booking-image-note strong {
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.amh-booking-image-note span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.amh-booking-card {
+  width: 100%;
+  height: 100%;
+  padding: 34px;
+  border: 1px solid #e8efea;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 45px rgba(7, 59, 43, 0.055);
+}
+
+.amh-booking-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 23px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #edf1ee;
+}
+
+.amh-booking-card-icon {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #eaf6ef;
+  color: #0d8950;
+}
+
+.amh-booking-card-heading h3 {
+  margin: 0 0 6px;
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.amh-booking-card-heading p {
+  margin: 0;
+  color: #87928b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.amh-booking-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 16px;
+}
+
+.amh-booking-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.amh-booking-field--full {
+  grid-column: 1 / -1;
+}
+
+.amh-booking-field > label {
+  display: block;
+  margin-bottom: 9px;
+  color: #263f33;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.amh-booking-field > label > span:not(.amh-booking-optional) {
+  color: #d54d4d;
+}
+
+.amh-booking-optional {
+  color: #929c95;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+/* ==========================================
+   INPUTS AND SELECT
+========================================== */
+
+.amh-booking-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 51px;
+  padding: 0 13px;
+  border: 1px solid #e2e9e4;
+  border-radius: 9px;
+  background: #ffffff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.amh-booking-input:focus-within {
+  border-color: #0d8950;
+  box-shadow: 0 0 0 3px rgba(13, 137, 80, 0.08);
+}
+
+.amh-booking-input > svg {
+  flex-shrink: 0;
+  color: #0d8950;
+}
+
+.amh-booking-input input,
+.amh-booking-input select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 49px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #263f33;
+  font-family: var(--font-primary);
+  font-size: 12px;
+}
+
+.amh-booking-input input::placeholder {
+  color: #a5afa8;
+}
+
+.amh-booking-input select {
+  cursor: pointer;
+}
+
+.amh-booking-input input[aria-invalid="true"],
+.amh-booking-input select[aria-invalid="true"] {
+  color: #263f33;
+}
+
+/* ==========================================
+   TEXTAREA
+========================================== */
+
+.amh-booking-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  padding: 13px;
+  resize: vertical;
+  border: 1px solid #e2e9e4;
+  border-radius: 9px;
+  outline: none;
+  background: #ffffff;
+  color: #263f33;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 1.7;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.amh-booking-field textarea::placeholder {
+  color: #a5afa8;
+}
+
+.amh-booking-field textarea:focus {
+  border-color: #0d8950;
+  box-shadow: 0 0 0 3px rgba(13, 137, 80, 0.08);
+}
+
+/* ==========================================
+   FIELD VALIDATION
+========================================== */
+
+.amh-booking-field input[aria-invalid="true"],
+.amh-booking-field select[aria-invalid="true"],
+.amh-booking-field textarea[aria-invalid="true"] {
+  border-color: #d9534f;
+}
+
+.amh-booking-error {
+  display: block;
+  margin-top: 7px;
+  color: #c63f3b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.amh-booking-character-count {
+  align-self: flex-end;
+  margin-top: 6px;
+  color: #929c95;
+  font-size: 10px;
+}
+
+/* ==========================================
+   HONEYPOT
+========================================== */
+
+.amh-booking-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ==========================================
+   FEEDBACK
+========================================== */
+
+.amh-booking-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px;
+  margin-top: 22px;
+  border-radius: 9px;
+}
+
+.amh-booking-feedback > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.amh-booking-feedback p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.amh-booking-feedback--error {
+  color: #a52e2e;
+  border: 1px solid #f5d1ce;
+  background: #fff0ef;
+}
+
+.amh-booking-feedback--info {
+  color: #075b37;
+  border: 1px solid #cfe9d9;
+  background: #eaf6ef;
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.amh-booking-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  width: 100%;
+  min-height: 53px;
+  margin-top: 25px;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #0d8950;
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.amh-booking-submit:hover {
+  background: #073b2b;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   DISCLAIMER
+========================================== */
+
+.amh-booking-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #929c95;
+}
+
+.amh-booking-disclaimer svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.amh-booking-disclaimer p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+.amh-booking-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  color: #68766f;
+  font-size: 12px;
+}
+
+.amh-booking-contact svg {
+  flex-shrink: 0;
+  color: #0d8950;
+}
+
+.amh-booking-contact p {
+  margin: 0;
+}
+
+.amh-booking-contact a {
+  color: #0d8950;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ==========================================
+   RESPONSIVE — TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .amh-booking-layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 20px;
+  }
+
+  .amh-booking-card {
+    padding: 25px;
+  }
+
+  .amh-booking-image-panel {
+    min-height: 680px;
+  }
+
+  .amh-booking-image-shade {
+    padding: 25px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — SMALL TABLET
+========================================== */
+
+@media (max-width: 800px) {
+  .amh-booking-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .amh-booking-image-panel {
+    min-height: 440px;
+  }
+
+  .amh-booking-card {
+    padding: 30px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .amh-booking-container {
+    width: 92%;
+  }
+
+  .amh-booking-hero {
+    min-height: 300px;
+  }
+
+  .amh-booking-hero .amh-booking-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .amh-booking-hero h1 {
+    font-size: 35px;
+  }
+
+  .amh-booking-hero p {
+    font-size: 13px;
+  }
+
+  .amh-booking-section {
+    padding: 60px 0;
+  }
+
+  .amh-booking-intro {
+    margin-bottom: 27px;
+  }
+
+  .amh-booking-intro h2 {
+    font-size: 29px;
+  }
+
+  .amh-booking-image-panel {
+    min-height: 370px;
+    border-radius: 15px;
+  }
+
+  .amh-booking-image-shade {
+    padding: 22px;
+  }
+
+  .amh-booking-image-copy h2 {
+    font-size: 31px;
+  }
+
+  .amh-booking-card {
+    padding: 23px 17px;
+    border-radius: 13px;
+  }
+
+  .amh-booking-fields {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .amh-booking-field--full {
+    grid-column: auto;
+  }
+
+  .amh-booking-card-heading h3 {
+    font-size: 19px;
+  }
+
+  .amh-booking-contact {
+    align-items: flex-start;
+    line-height: 1.7;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+  .amh-booking-hero h1 {
+    font-size: 30px;
+  }
+
+  .amh-booking-card {
+    padding: 20px 14px;
+  }
+
+  .amh-booking-image-panel {
+    min-height: 340px;
+  }
+
+  .amh-booking-image-copy h2 {
+    font-size: 27px;
+  }
+}

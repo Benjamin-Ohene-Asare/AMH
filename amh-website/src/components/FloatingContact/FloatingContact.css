@@ -1,0 +1,236 @@
+
+.amh-floating-contact {
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  z-index: 999999;
+  font-family: var(--font-primary);
+}
+
+.amh-floating-contact-button {
+  position: relative;
+  z-index: 999999;
+}
+
+/* Keep the contact panel above other elements */
+.amh-contact-panel {
+  z-index: 999999;
+}
+
+/* Floating button */
+.amh-floating-contact-button {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: #0d8950;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(7, 59, 43, 0.25);
+  transition: 0.3s ease;
+}
+
+.amh-floating-contact-button:hover {
+  background: #073b2b;
+  transform: translateY(-4px);
+}
+
+.amh-floating-contact-button.active {
+  background: #073b2b;
+}
+
+/* Contact panel */
+.amh-contact-panel {
+  position: absolute;
+  right: 0;
+  bottom: 78px;
+  width: 360px;
+  max-width: calc(100vw - 35px);
+  background: #ffffff;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 15px 55px rgba(0, 0, 0, 0.18);
+  border: 1px solid #e8eeea;
+  animation: amhContactAppear 0.25s ease;
+}
+
+@keyframes amhContactAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Panel heading */
+.amh-contact-panel-header {
+  background: #073b2b;
+  color: #ffffff;
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.amh-contact-panel-header h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.amh-contact-panel-header p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.amh-contact-close {
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+/* Panel content */
+.amh-contact-panel-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Emergency contact */
+.amh-emergency-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #fff4f3;
+  border: 1px solid #f8d9d6;
+  color: #c52f2f;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.amh-emergency-contact:hover {
+  background: #ffe9e7;
+  transform: translateY(-2px);
+}
+
+.amh-emergency-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  background: #fbe1de;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.amh-emergency-contact div:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.amh-emergency-contact span,
+.amh-contact-item span {
+  font-size: 11px;
+  color: #6b7972;
+}
+
+.amh-emergency-contact strong {
+  font-size: 17px;
+}
+
+.amh-emergency-contact small,
+.amh-contact-item small {
+  font-size: 10px;
+}
+
+/* Other contact details */
+.amh-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 12px 10px;
+  color: #0d8950;
+  text-decoration: none;
+  border-radius: 9px;
+  transition: 0.2s ease;
+}
+
+.amh-contact-item:hover {
+  background: #f2f8f4;
+}
+
+.amh-contact-item > svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.amh-contact-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.amh-contact-item strong {
+  color: #183b30;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.amh-contact-item small {
+  color: #0d8950;
+}
+
+/* Footer */
+.amh-contact-panel-footer {
+  padding: 13px 18px;
+  background: #f5f8f6;
+  border-top: 1px solid #e8eeea;
+  color: #52675c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .amh-floating-contact {
+    right: 16px;
+    bottom: 95px;
+  }
+
+  .amh-floating-contact-button {
+    width: 54px;
+    height: 54px;
+  }
+
+  .amh-contact-panel {
+    width: calc(100vw - 32px);
+    right: -0px;
+    bottom: 68px;
+  }
+}

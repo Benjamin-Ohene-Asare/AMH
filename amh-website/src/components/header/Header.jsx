@@ -3,14 +3,15 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import "./Header.css";
+import { PhoneCall } from "lucide-react";
 
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Departments", href: "#departments", dropdown: true },
-  { label: "Services", href: "#services" },
-  { label: "News", href: "#news" },
-  { label: "Contact", href: "#contact" },
+  { label: "Departments", dropdown: true },
+  { label: "Services", to: "/services" },
+  { label: "Events", to: "/events" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export default function Header() {
@@ -19,16 +20,18 @@ export default function Header() {
 
   const location = useLocation();
 
-  // Close navigation menus after selecting a link
   const closeMenus = () => {
     setMobileOpen(false);
     setDepartmentsOpen(false);
   };
 
-  // Check which navigation page is currently active
   const isActive = (link) => {
     if (link.to) {
       return location.pathname === link.to;
+    }
+
+    if (link.dropdown) {
+      return location.pathname.startsWith("/departments");
     }
 
     return false;
@@ -44,10 +47,11 @@ export default function Header() {
             Serving the Community with Compassion &amp; Excellence
           </span>
 
-          <a href="tel:+233000000000" className="amh-emergency">
-            <span>☎</span> Emergency: +233 (0) 000-000-000
-          </a>
-        </div>
+    
+<a href="tel:0542663331" className="amh-emergency">
+  <PhoneCall size={17} /> 
+  Emergency: 0542-663-331
+</a>   </div>
       </div>
 
       {/* MAIN NAVIGATION */}
@@ -76,14 +80,20 @@ export default function Header() {
               {link.dropdown ? (
                 <>
                   <button
-                    className="amh-nav-link"
+                    className={`amh-nav-link ${
+                      isActive(link) ? "active" : ""
+                    }`}
                     onClick={() =>
                       setDepartmentsOpen(!departmentsOpen)
                     }
                     aria-expanded={departmentsOpen}
+                    aria-haspopup="true"
                   >
                     {link.label}
-                    <ChevronDown size={15} />
+                    <ChevronDown
+                      size={15}
+                      className={departmentsOpen ? "rotate-chevron" : ""}
+                    />
                   </button>
 
                   {departmentsOpen && (
@@ -91,10 +101,24 @@ export default function Header() {
                       <Link to="/departments" onClick={closeMenus}>
                         All Departments
                       </Link>
+
+                      <Link
+                        to="/departments/clinical"
+                        onClick={closeMenus}
+                      >
+                        Clinical Departments
+                      </Link>
+
+                      <Link
+                        to="/departments/non-clinical"
+                        onClick={closeMenus}
+                      >
+                        Non-Clinical Departments
+                      </Link>
                     </div>
                   )}
                 </>
-              ) : link.to ? (
+              ) : (
                 <Link
                   to={link.to}
                   className={`amh-nav-link ${
@@ -104,14 +128,6 @@ export default function Header() {
                 >
                   {link.label}
                 </Link>
-              ) : (
-                <a
-                  href={link.href}
-                  className="amh-nav-link"
-                  onClick={closeMenus}
-                >
-                  {link.label}
-                </a>
               )}
 
             </div>
@@ -119,7 +135,10 @@ export default function Header() {
         </nav>
 
         {/* APPOINTMENT BUTTON */}
-        <Link to="/appointments" className="amh-appointment">
+        <Link
+          to="/appointment"
+          className="amh-appointment"
+        >
           Book Appointment
         </Link>
 

@@ -26,7 +26,6 @@ export default function Home() {
     
    
  {/* <AppointmentCTA/> */}
- <Footer/>
       {/* Future homepage sections */}
     </main>
   );

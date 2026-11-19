@@ -4,31 +4,39 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   ArrowUpRight,
+  ArrowRight,
+  HeartPulse,
+  Building2,
+  CalendarDays,
+  ShieldCheck,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import "./Footer.css";
 
-// Footer navigation links
 const quickLinks = [
   { name: "Home", link: "/" },
-  { name: "About Us", link: "/about" },
-  { name: "News & Updates", link: "/news" },
-  { name: "All Departments", link: "/departments" },
-  { name: "Services", link: "/services" },
-  { name: "Book Appointment", link: "/appointments" },
+  { name: "About the Hospital", link: "/about" },
+  { name: "Our Services", link: "/services" },
+  { name: "News & Events", link: "/events" },
   { name: "Contact Us", link: "/contact" },
+  { name: "Book an Appointment", link: "/appointment" },
 ];
 
-// Hospital departments
-const departments = [
-  { name: "Emergency & Casualty", link: "/departments/emergency" },
-  { name: "Maternity & Obstetrics", link: "/departments/maternity" },
-  { name: "Paediatrics", link: "/departments/paediatrics" },
-  { name: "Surgery", link: "/departments/surgery" },
-  { name: "Laboratory", link: "/departments/laboratory" },
-  { name: "Pharmacy", link: "/departments/pharmacy" },
+const departmentLinks = [
+  {
+    name: "Clinical Departments",
+    link: "/departments/clinical",
+  },
+  {
+    name: "Non-Clinical Departments",
+    link: "/departments/non-clinical",
+  },
+  {
+    name: "All Departments",
+    link: "/departments",
+  },
 ];
 
 const Footer = () => {
@@ -37,47 +45,48 @@ const Footer = () => {
 
       <div className="amh-footer-container">
 
-        {/* =====================================
-            HOSPITAL INFORMATION
-        ====================================== */}
-
+        {/* HOSPITAL BRAND */}
         <div className="amh-footer-brand">
 
-          <a href="/" className="amh-footer-logo">
+          <Link to="/" className="amh-footer-logo">
             <span className="amh-footer-logo-mark">AMH</span>
+
             <span className="amh-footer-logo-line"></span>
+
             <span className="amh-footer-logo-name">
               Ahmadiyya Muslim Hospital
             </span>
-          </a>
+          </Link>
 
           <p className="amh-footer-location">
-            Daboase, Ghana
+            <MapPin size={15} />
+            Daboase, Western Region, Ghana
           </p>
 
           <p className="amh-footer-description">
-            Providing quality, compassionate healthcare to
-            the people of Daboase and surrounding communities
-            since 1979.
+            Serving humanity through health service delivery
+            relevant to the needs of the people.
           </p>
+
+          <Link to="/about" className="amh-footer-learn-more">
+            Learn more about us
+            <ArrowRight size={16} />
+          </Link>
 
         </div>
 
 
-        {/* =====================================
-            QUICK LINKS
-        ====================================== */}
-
+        {/* QUICK LINKS */}
         <div className="amh-footer-column">
 
-          <h3>Quick Links</h3>
+          <h3>Explore</h3>
 
           <ul>
             {quickLinks.map((item) => (
               <li key={item.name}>
-                <a href={item.link}>
+                <Link to={item.link}>
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -85,80 +94,99 @@ const Footer = () => {
         </div>
 
 
-        {/* =====================================
-            KEY DEPARTMENTS
-        ====================================== */}
-
+        {/* DEPARTMENTS */}
         <div className="amh-footer-column">
 
-          <h3>Key Departments</h3>
+          <h3>Our Departments</h3>
 
           <ul>
-            {departments.map((item) => (
+            {departmentLinks.map((item) => (
               <li key={item.name}>
-                <a href={item.link}>
+                <Link to={item.link}>
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
+          <div className="amh-footer-department-note">
+            <Building2 size={17} />
+            <span>
+              Discover the different units supporting
+              healthcare delivery at our hospital.
+            </span>
+          </div>
+
         </div>
 
 
-        {/* =====================================
-            CONTACT INFORMATION
-        ====================================== */}
-
+        {/* CONTACT INFORMATION */}
         <div className="amh-footer-column amh-footer-contact">
 
-          <h3>Contact Us</h3>
+          <h3>Get in Touch</h3>
 
           <div className="amh-footer-contact-item">
-            <MapPin size={18} />
-            <p>
-              Ahmadiyya Muslim Hospital,
-              Daboase, Western Region, Ghana
-            </p>
-          </div>
+            <MapPin size={19} />
 
-          <div className="amh-footer-contact-item">
-            <Phone size={18} />
-            <a href="tel:+233000000000">
-              +233 (0) 000-000-000
-            </a>
-          </div>
-
-          <div className="amh-footer-contact-item">
-            <Mail size={18} />
-            <a href="mailto:info@amhdaboase.org">
-              info@amhdaboase.org
-            </a>
+            <div>
+              <span>Hospital Location</span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Daboase+near+the+cemetery+Wassa+East+District+Ghana"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Wassa East District, Daboase,
+                near the cemetery
+              </a>
+            </div>
           </div>
 
           <div className="amh-footer-contact-item">
-            <Clock size={18} />
-            <p>
-              <strong>OPD:</strong> Mon–Fri, 8am–5pm
-            </p>
+            <Phone size={19} />
+
+            <div>
+              <span>Telephone</span>
+              <a href="tel:0206301219">
+                0206-301-219
+              </a>
+            </div>
           </div>
 
-          <div className="amh-footer-emergency">
-            <span className="amh-footer-emergency-dot"></span>
-            <p>
-              <strong>Emergency:</strong> Available 24/7
-            </p>
+          <div className="amh-footer-contact-item">
+            <Mail size={19} />
+
+            <div>
+              <span>Email Address</span>
+              <a href="mailto:ahmadiyyahospital.daboase@gmail.com">
+                ahmadiyyahospital.daboase@gmail.com
+              </a>
+            </div>
           </div>
+
+          {/* EMERGENCY CONTACT */}
+          <a
+            href="tel:0542663331"
+            className="amh-footer-emergency"
+          >
+            <div className="amh-footer-emergency-icon">
+              <HeartPulse size={19} />
+            </div>
+
+            <div>
+              <span>Emergency Telephone</span>
+              <strong>0542-663-331</strong>
+              <small>Tap to call</small>
+            </div>
+
+            <ArrowUpRight size={17} />
+          </a>
 
         </div>
 
       </div>
 
 
-      {/* =====================================
-          FOOTER BOTTOM / COPYRIGHT
-      ====================================== */}
-
+      {/* FOOTER BOTTOM */}
       <div className="amh-footer-bottom">
 
         <div className="amh-footer-bottom-container">
@@ -168,10 +196,17 @@ const Footer = () => {
             All rights reserved.
           </p>
 
-          <a href="/" className="amh-footer-back-top">
-            Back to Top
-            <ArrowUpRight size={16} />
-          </a>
+          <div className="amh-footer-bottom-links">
+            <span>
+              <ShieldCheck size={15} />
+              Healthcare with professionalism and integrity
+            </span>
+
+            <a href="#top" className="amh-footer-back-top">
+              Back to Top
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
 
         </div>
 

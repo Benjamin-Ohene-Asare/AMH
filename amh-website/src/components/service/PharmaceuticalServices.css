@@ -1,0 +1,265 @@
+
+.amh-pharmacy-section {
+  padding: 110px 6%;
+  background: #f5f8f6;
+  overflow: hidden;
+}
+
+.amh-pharmacy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.amh-pharmacy-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 75px;
+}
+
+.amh-pharmacy-label {
+  display: inline-block;
+  margin-bottom: 17px;
+  color: #0d8950;
+  font-family: var(--font-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-pharmacy-content h2 {
+  max-width: 520px;
+  margin: 0 0 20px;
+  color: #073b2b;
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.amh-pharmacy-content h2 span {
+  color: #0d8950;
+}
+
+.amh-pharmacy-intro {
+  max-width: 540px;
+  margin: 0 0 32px;
+  color: #68766f;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.amh-pharmacy-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 22px;
+}
+
+.amh-pharmacy-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.amh-pharmacy-feature-icon {
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d8950;
+  background: #e4f1e9;
+  border-radius: 12px;
+}
+
+.amh-pharmacy-feature h3 {
+  margin: 2px 0 7px;
+  color: #153e30;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.amh-pharmacy-feature p {
+  margin: 0;
+  color: #78847d;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.amh-pharmacy-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid #dce7df;
+  color: #0d8950;
+}
+
+.amh-pharmacy-note-line {
+  flex-shrink: 0;
+  width: 4px;
+  height: 38px;
+  background: #d7b86a;
+  border-radius: 5px;
+}
+
+.amh-pharmacy-note p {
+  flex: 1;
+  margin: 0;
+  color: #52645a;
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.amh-pharmacy-visual {
+  position: relative;
+  min-width: 0;
+}
+
+.amh-pharmacy-image-wrap {
+  position: relative;
+  height: 570px;
+  overflow: hidden;
+  border-radius: 180px 12px 12px 12px;
+  z-index: 1;
+}
+
+.amh-pharmacy-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.amh-pharmacy-image-wrap:hover img {
+  transform: scale(1.05);
+}
+
+.amh-pharmacy-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(3, 35, 25, 0.85),
+    rgba(3, 35, 25, 0.05) 65%
+  );
+}
+
+.amh-pharmacy-image-caption {
+  position: absolute;
+  right: 30px;
+  bottom: 32px;
+  left: 30px;
+  color: #fff;
+}
+
+.amh-pharmacy-image-caption span {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #e5cb83;
+  font-family: var(--font-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-pharmacy-image-caption h3 {
+  max-width: 350px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 25px;
+  line-height: 1.35;
+}
+
+.amh-pharmacy-image-accent {
+  position: absolute;
+  top: 25px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d7b86a;
+  border-radius: 180px 12px 12px 12px;
+  z-index: 0;
+}
+
+@media (max-width: 992px) {
+  .amh-pharmacy-layout {
+    gap: 40px;
+  }
+
+  .amh-pharmacy-image-wrap {
+    height: 500px;
+  }
+
+  .amh-pharmacy-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .amh-pharmacy-section {
+    padding: 75px 5%;
+  }
+
+  .amh-pharmacy-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .amh-pharmacy-content h2 {
+    font-size: 36px;
+  }
+
+  .amh-pharmacy-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 15px;
+  }
+
+  .amh-pharmacy-feature {
+    gap: 10px;
+  }
+
+  .amh-pharmacy-feature-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .amh-pharmacy-feature h3 {
+    font-size: 13px;
+  }
+
+  .amh-pharmacy-feature p {
+    font-size: 11px;
+  }
+
+  .amh-pharmacy-image-wrap {
+    height: 440px;
+    border-radius: 110px 10px 10px 10px;
+  }
+
+  .amh-pharmacy-image-accent {
+    border-radius: 110px 10px 10px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .amh-pharmacy-features {
+    grid-template-columns: 1fr;
+  }
+
+  .amh-pharmacy-image-wrap {
+    height: 380px;
+  }
+
+  .amh-pharmacy-image-caption h3 {
+    font-size: 21px;
+  }
+}

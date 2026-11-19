@@ -337,3 +337,11 @@
     font-size: 11px;
   }
 }
+
+
+/* Hide top information bar on mobile */
+@media (max-width: 768px) {
+  .amh-topbar {
+    display: none;
+  }
+}

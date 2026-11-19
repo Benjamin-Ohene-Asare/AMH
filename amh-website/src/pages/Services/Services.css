@@ -1,0 +1,104 @@
+
+.amh-services-page {
+  width: 100%;
+}
+
+.amh-services-hero {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 48, 35, 0.94),
+      rgba(5, 48, 35, 0.76),
+      rgba(5, 48, 35, 0.45)
+    ),
+    url("/images/hospital-building.jpg") center 45% / cover no-repeat;
+}
+
+.amh-services-hero-overlay {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 6%;
+}
+
+.amh-services-hero-content {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  color: #fff;
+}
+
+.amh-services-breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.amh-services-breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.amh-services-breadcrumb a:hover {
+  color: #d7b86a;
+}
+
+.amh-services-breadcrumb span:last-child {
+  color: #d7b86a;
+}
+
+.amh-services-hero-line {
+  width: 55px;
+  height: 4px;
+  background: #d7b86a;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+}
+
+.amh-services-hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.amh-services-hero-content p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 768px) {
+  .amh-services-hero,
+  .amh-services-hero-overlay {
+    min-height: 260px;
+  }
+
+  .amh-services-hero-overlay {
+    padding: 55px 5%;
+  }
+
+  .amh-services-hero-content h1 {
+    font-size: 38px;
+  }
+
+  .amh-services-hero-content p {
+    font-size: 12px;
+  }
+}

@@ -29,7 +29,6 @@ const Login = () => {
     remember: false,
   });
 
-  // Redirect users according to their account role
   const redirectUser = (user) => {
     if (user?.role === "SUPER_ADMIN") {
       navigate("/admin/dashboard", { replace: true });
@@ -38,14 +37,12 @@ const Login = () => {
     }
   };
 
-  // Google authentication response
   const handleGoogleResponse = useCallback(async (response) => {
     setError("");
     setLoading(true);
 
     try {
       const data = await googleLogin(response.credential);
-
       redirectUser(data.user);
     } catch (err) {
       setError(
@@ -57,7 +54,6 @@ const Login = () => {
     }
   }, [navigate]);
 
-  // Load and initialize Google Identity Services
   useEffect(() => {
     if (!GOOGLE_CLIENT_ID || !googleButtonRef.current) return;
 
@@ -114,7 +110,6 @@ const Login = () => {
     };
   }, [handleGoogleResponse]);
 
-  // Handle form inputs
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -124,7 +119,6 @@ const Login = () => {
     }));
   };
 
-  // Email/username login
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -157,7 +151,6 @@ const Login = () => {
 
         {/* LEFT VISUAL SECTION */}
         <section className="amh-auth-visual">
-
           <div className="amh-auth-brand">
             <div className="amh-auth-brand-icon">
               <HeartPulse size={25} />
@@ -187,7 +180,6 @@ const Login = () => {
           <div className="amh-auth-visual-footer">
             Healthcare. Community. Humanity.
           </div>
-
         </section>
 
         {/* RIGHT LOGIN SECTION */}
@@ -204,7 +196,6 @@ const Login = () => {
               <p>Sign in to continue to your account.</p>
             </div>
 
-            {/* ERROR MESSAGE */}
             {error && (
               <div className="amh-auth-error" role="alert">
                 {error}
@@ -254,7 +245,6 @@ const Login = () => {
               </div>
 
               <div className="amh-auth-field">
-
                 <div className="amh-auth-password-label">
                   <label htmlFor="password">
                     Password
@@ -294,7 +284,6 @@ const Login = () => {
                     )}
                   </button>
                 </div>
-
               </div>
 
               {/* REMEMBER ME */}
@@ -321,15 +310,6 @@ const Login = () => {
               </button>
 
             </form>
-
-            <div className="amh-auth-divider">
-              <span>NEW TO OUR COMMUNITY?</span>
-            </div>
-
-            <p className="amh-auth-signup">
-              Don't have an account?
-              <Link to="/signup"> Create an account</Link>
-            </p>
 
             <p className="amh-auth-terms">
               By continuing, you agree to our Terms of Service

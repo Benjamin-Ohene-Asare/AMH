@@ -396,3 +396,85 @@
     font-size: 28px;
   }
 }
+
+
+
+.amh-signup-coming-soon {
+  max-width: 470px;
+}
+
+.amh-coming-soon-icon {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  background: #eef5ff;
+  color: #1769aa;
+  margin-bottom: 28px;
+}
+
+.amh-coming-soon-label {
+  display: block;
+  color: #1769aa;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.amh-signup-coming-soon h2 {
+  font-size: clamp(30px, 4vw, 38px);
+  line-height: 1.2;
+  color: #172b42;
+  margin-bottom: 14px;
+}
+
+.amh-signup-coming-soon > p:not(.amh-signup-terms) {
+  color: #687789;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.amh-coming-soon-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f5f8fc;
+  color: #526579;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+
+.amh-coming-soon-note svg {
+  flex-shrink: 0;
+  color: #1769aa;
+}
+
+.amh-coming-soon-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 9px;
+  background: #1769aa;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.amh-coming-soon-back:hover {
+  background: #125486;
+  transform: translateY(-2px);
+}
+
+.amh-signup-coming-soon .amh-signup-terms {
+  margin-top: 45px;
+}

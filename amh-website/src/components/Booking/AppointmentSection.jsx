@@ -9,6 +9,8 @@ import {
   Activity,
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 import appointmentImage from "../../assets/cbook.png";
 import ScrollReveal from "../../components/ScrollReveal";
 
@@ -86,13 +88,13 @@ export default function AppointmentSection() {
             {/* Appointment button */}
             <div className="amh-appointment-actions">
 
-              <a
-                href="/appointments"
+              <Link
+                to="/appointment"
                 className="amh-appointment-button"
               >
                 Request an Appointment
                 <ArrowUpRight size={19} />
-              </a>
+              </Link>
 
               <span className="amh-appointment-note">
                 <HeartPulse size={16} />

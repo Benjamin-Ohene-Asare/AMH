@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   CalendarDays,
   Clock3,
@@ -12,11 +12,13 @@ import {
   AlertCircle,
   ArrowRight,
   MapPin,
+  X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import ScrollReveal from "../../components/ScrollReveal";
 import bookingImage from "../../assets/book.jpg";
+import { submitAppointment } from "../../api/api";
 import "./Appointment.css";
 
 const sanitizeText = (value, maxLength) =>
@@ -38,15 +40,48 @@ const initialForm = {
   website: "",
 };
 
+const departments = [
+  { value: "general", label: "General Consultation" },
+  { value: "maternity", label: "Maternity" },
+  { value: "paediatrics", label: "Paediatrics" },
+  { value: "laboratory", label: "Laboratory" },
+  { value: "pharmacy", label: "Pharmacy" },
+  { value: "dental", label: "Dental" },
+  { value: "eye", label: "Eye Clinic" },
+  { value: "other", label: "Other" },
+];
+
 const Appointment = () => {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
   const [status, setStatus] = useState({
     type: "",
     message: "",
   });
 
   const today = new Date().toLocaleDateString("en-CA");
+
+  // Close the popup with Escape and prevent background scrolling.
+  useEffect(() => {
+    if (!isSuccessModalOpen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsSuccessModalOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isSuccessModalOpen]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -88,37 +123,45 @@ const Appointment = () => {
       newErrors.email = "Please enter a valid email address.";
     }
 
-    if (!data.department || data.department.length < 2) {
-      newErrors.department = "Please enter your preferred department.";
+    if (!departments.some((item) => item.value === data.department)) {
+      newErrors.department = "Please select a valid department.";
     }
 
     if (!data.appointmentDate) {
       newErrors.appointmentDate = "Please select an appointment date.";
     } else if (data.appointmentDate < today) {
-      newErrors.appointmentDate = "Please select today or a future date.";
+      newErrors.appointmentDate =
+        "Please select today or a future date.";
     }
 
-    if (!data.preferredTime) {
-      newErrors.preferredTime = "Please select your preferred time.";
+    if (
+      !["morning", "afternoon", "evening"].includes(data.preferredTime)
+    ) {
+      newErrors.preferredTime =
+        "Please select your preferred time.";
     }
 
     if (!data.reason || data.reason.length < 5) {
-      newErrors.reason = "Please provide a little more information.";
+      newErrors.reason =
+        "Please provide a little more information.";
     }
 
     return newErrors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (isSubmitting) return;
+
+    // Honeypot spam protection
     if (formData.website.trim() !== "") return;
 
     const sanitizedData = {
       fullName: sanitizeText(formData.fullName, 100),
       phone: formData.phone.replace(/[^\d+]/g, "").slice(0, 13),
       email: sanitizeText(formData.email, 120).toLowerCase(),
-      department: sanitizeText(formData.department, 100),
+      department: formData.department,
       appointmentDate: formData.appointmentDate,
       preferredTime: formData.preferredTime,
       reason: sanitizeText(formData.reason, 1000),
@@ -130,17 +173,74 @@ const Appointment = () => {
       setErrors(validationErrors);
       setStatus({
         type: "error",
-        message: "Please review the highlighted fields and try again.",
+        message:
+          "Please review the highlighted fields and try again.",
       });
       return;
     }
 
     setErrors({});
-    setStatus({
-      type: "info",
-      message:
-        "Your details passed the frontend checks. Online appointment submission is not yet connected. Please contact the hospital directly to arrange your appointment.",
-    });
+    setStatus({ type: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const appointmentData = {
+        full_name: sanitizedData.fullName,
+        phone: sanitizedData.phone,
+        email: sanitizedData.email || "",
+        department: sanitizedData.department,
+        appointment_date: sanitizedData.appointmentDate,
+        preferred_time: sanitizedData.preferredTime,
+        reason: sanitizedData.reason,
+      };
+
+      await submitAppointment(appointmentData);
+
+      setFormData(initialForm);
+      setIsSuccessModalOpen(true);
+    } catch (error) {
+      console.error("Appointment submission error:", error);
+
+      const responseData = error.response?.data || {};
+      const backendErrors = {};
+
+      const fieldMap = {
+        full_name: "fullName",
+        phone: "phone",
+        email: "email",
+        department: "department",
+        appointment_date: "appointmentDate",
+        preferred_time: "preferredTime",
+        reason: "reason",
+      };
+
+      Object.entries(fieldMap).forEach(
+        ([backendField, frontendField]) => {
+          if (responseData[backendField]) {
+            backendErrors[frontendField] = Array.isArray(
+              responseData[backendField]
+            )
+              ? responseData[backendField][0]
+              : responseData[backendField];
+          }
+        }
+      );
+
+      setErrors(backendErrors);
+
+      setStatus({
+        type: "error",
+        message:
+          responseData.detail ||
+          "We could not submit your appointment. Please check your details and try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
   };
 
   return (
@@ -344,17 +444,27 @@ const Appointment = () => {
 
                       <div className="amh-booking-input">
                         <ClipboardList size={18} />
-                        <input
+                        <select
                           id="department"
-                          type="text"
                           name="department"
-                          placeholder="Enter your preferred department"
                           value={formData.department}
                           onChange={handleChange}
-                          maxLength={100}
                           aria-invalid={Boolean(errors.department)}
                           required
-                        />
+                        >
+                          <option value="">
+                            Select preferred department
+                          </option>
+
+                          {departments.map((department) => (
+                            <option
+                              key={department.value}
+                              value={department.value}
+                            >
+                              {department.label}
+                            </option>
+                          ))}
+                        </select>
                       </div>
 
                       {errors.department && (
@@ -408,11 +518,9 @@ const Appointment = () => {
                           required
                         >
                           <option value="">Select preferred time</option>
-                          <option value="Morning">Morning</option>
-                          <option value="Afternoon">Afternoon</option>
-                          <option value="Any available time">
-                            Any available time
-                          </option>
+                          <option value="morning">Morning</option>
+                          <option value="afternoon">Afternoon</option>
+                          <option value="evening">Evening</option>
                         </select>
                       </div>
 
@@ -468,33 +576,35 @@ const Appointment = () => {
 
                   </div>
 
-                  {/* Form feedback */}
-                  {status.message && (
+                  {/* Error feedback */}
+                  {status.type === "error" && status.message && (
                     <div
-                      className={`amh-booking-feedback amh-booking-feedback--${status.type}`}
-                      role="status"
-                      aria-live="polite"
+                      className="amh-booking-feedback amh-booking-feedback--error"
+                      role="alert"
                     >
-                      {status.type === "error" ? (
-                        <AlertCircle size={19} />
-                      ) : (
-                        <CheckCircle2 size={19} />
-                      )}
+                      <AlertCircle size={19} />
                       <p>{status.message}</p>
                     </div>
                   )}
 
-                  <button type="submit" className="amh-booking-submit">
-                    Validate Appointment Request
-                    <ArrowRight size={18} />
+                  <button
+                    type="submit"
+                    className="amh-booking-submit"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting
+                      ? "Submitting Request..."
+                      : "Submit Appointment Request"}
+
+                    {!isSubmitting && <ArrowRight size={18} />}
                   </button>
 
                   <div className="amh-booking-disclaimer">
                     <ShieldCheck size={17} />
                     <p>
-                      This form currently checks your information in your
-                      browser. It is not connected to the hospital's booking
-                      system, and submitting it does not confirm an appointment.
+                      Your request will be sent to the hospital for review.
+                      Submitting this form does not automatically confirm
+                      an appointment. Our team will contact you.
                     </p>
                   </div>
                 </form>
@@ -513,6 +623,75 @@ const Appointment = () => {
 
         </div>
       </section>
+
+      {/* Custom success popup */}
+      {isSuccessModalOpen && (
+        <div
+          className="amh-success-overlay"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              closeSuccessModal();
+            }
+          }}
+        >
+          <div
+            className="amh-success-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="amh-success-title"
+            aria-describedby="amh-success-description"
+          >
+            <button
+              type="button"
+              className="amh-success-close"
+              onClick={closeSuccessModal}
+              aria-label="Close confirmation"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="amh-success-icon">
+              <CheckCircle2 size={43} strokeWidth={1.8} />
+            </div>
+
+            <span className="amh-success-label">
+              REQUEST RECEIVED
+            </span>
+
+            <h2 id="amh-success-title">
+              Appointment Request Submitted!
+            </h2>
+
+            <p id="amh-success-description">
+              Your appointment request has been submitted successfully.
+              Our hospital team will review your request and contact you.
+              Please note that your appointment is not confirmed until
+              the hospital contacts you.
+            </p>
+
+            <div className="amh-success-notice">
+              <ShieldCheck size={19} />
+              <span>
+                Please wait for confirmation from our hospital team.
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className="amh-success-done"
+              onClick={closeSuccessModal}
+            >
+              Done
+              <ArrowRight size={18} />
+            </button>
+
+            <span className="amh-success-footer">
+              Ahmadiyya Muslim Hospital
+            </span>
+          </div>
+        </div>
+      )}
+
     </main>
   );
 };

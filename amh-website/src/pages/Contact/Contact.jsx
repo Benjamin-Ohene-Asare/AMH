@@ -4,13 +4,15 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   ArrowUpRight,
   Send,
   MessageCircle,
+  CheckCircle2,
+  AlertCircle,
 } from "lucide-react";
 
 import ScrollReveal from "../../components/ScrollReveal";
+import { submitContactMessage } from "../../api/api";
 import "./Contact.css";
 
 const Contact = () => {
@@ -23,6 +25,8 @@ const Contact = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,15 +35,66 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
+
+    if (submitError) {
+      setSubmitError("");
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Connect this form to your backend or email service.
-    console.log("Contact form submission:", formData);
+    if (submitting) return;
 
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await submitContactMessage({
+        first_name: formData.firstName.trim(),
+        last_name: formData.lastName.trim(),
+        email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+      });
+
+      setSubmitted(true);
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      const responseData = error.response?.data;
+
+      let errorMessage =
+        "We couldn't send your message. Please try again.";
+
+      if (!error.response) {
+        errorMessage =
+          "Unable to connect to the hospital server. Please check your internet connection and try again.";
+      } else if (responseData?.detail) {
+        errorMessage = responseData.detail;
+      } else if (responseData && typeof responseData === "object") {
+        const firstError = Object.values(responseData).flat()[0];
+
+        if (typeof firstError === "string") {
+          errorMessage = firstError;
+        }
+      }
+
+      setSubmitError(errorMessage);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleSendAnother = () => {
+    setSubmitted(false);
+    setSubmitError("");
   };
 
   return (
@@ -167,19 +222,21 @@ const Contact = () => {
               </div>
 
               {submitted ? (
-                <div className="amh-contact-success">
+                <div className="amh-contact-success" role="status">
                   <div className="amh-contact-success-icon">
-                    <Send size={28} />
+                    <CheckCircle2 size={30} />
                   </div>
+
                   <h3>Thank you for reaching out!</h3>
+
                   <p>
-                    Your message has been recorded in this demo. The form
-                    still needs an email or backend integration before it
-                    can deliver messages to the hospital.
+                    Your message has been successfully sent to Ahmadiyya
+                    Muslim Hospital. Thank you for contacting us.
                   </p>
+
                   <button
                     type="button"
-                    onClick={() => setSubmitted(false)}
+                    onClick={handleSendAnother}
                   >
                     Send another message
                   </button>
@@ -190,9 +247,21 @@ const Contact = () => {
                   onSubmit={handleSubmit}
                 >
 
+                  {submitError && (
+                    <div
+                      className="amh-contact-error"
+                      role="alert"
+                    >
+                      <AlertCircle size={18} />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
+
                   <div className="amh-contact-form-row">
+
                     <div className="amh-contact-field">
                       <label htmlFor="firstName">First Name *</label>
+
                       <input
                         id="firstName"
                         type="text"
@@ -200,12 +269,16 @@ const Contact = () => {
                         placeholder="Enter first name"
                         value={formData.firstName}
                         onChange={handleChange}
+                        autoComplete="given-name"
+                        maxLength={100}
                         required
+                        disabled={submitting}
                       />
                     </div>
 
                     <div className="amh-contact-field">
                       <label htmlFor="lastName">Last Name *</label>
+
                       <input
                         id="lastName"
                         type="text"
@@ -213,13 +286,18 @@ const Contact = () => {
                         placeholder="Enter last name"
                         value={formData.lastName}
                         onChange={handleChange}
+                        autoComplete="family-name"
+                        maxLength={100}
                         required
+                        disabled={submitting}
                       />
                     </div>
+
                   </div>
 
                   <div className="amh-contact-field">
                     <label htmlFor="email">Email Address *</label>
+
                     <input
                       id="email"
                       type="email"
@@ -227,12 +305,16 @@ const Contact = () => {
                       placeholder="example@email.com"
                       value={formData.email}
                       onChange={handleChange}
+                      autoComplete="email"
+                      maxLength={254}
                       required
+                      disabled={submitting}
                     />
                   </div>
 
                   <div className="amh-contact-field">
                     <label htmlFor="subject">Subject</label>
+
                     <input
                       id="subject"
                       type="text"
@@ -240,11 +322,14 @@ const Contact = () => {
                       placeholder="What is your message about?"
                       value={formData.subject}
                       onChange={handleChange}
+                      maxLength={200}
+                      disabled={submitting}
                     />
                   </div>
 
                   <div className="amh-contact-field">
                     <label htmlFor="message">Message *</label>
+
                     <textarea
                       id="message"
                       name="message"
@@ -253,11 +338,19 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
+                      disabled={submitting}
                     />
                   </div>
 
-                  <button type="submit" className="amh-contact-submit">
-                    <span>Submit Message</span>
+                  <button
+                    type="submit"
+                    className="amh-contact-submit"
+                    disabled={submitting}
+                  >
+                    <span>
+                      {submitting ? "Sending Message..." : "Submit Message"}
+                    </span>
+
                     <ArrowUpRight size={19} />
                   </button>
 
@@ -280,7 +373,9 @@ const Contact = () => {
         <div className="amh-contact-map-heading">
           <ScrollReveal direction="up">
             <span>FIND YOUR WAY TO US</span>
+
             <h2>Our Location</h2>
+
             <p>
               Find Ahmadiyya Muslim Hospital, Daboase, on the map.
             </p>

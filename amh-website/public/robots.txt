@@ -1,0 +1,11 @@
+
+User-agent: *
+Allow: /
+
+# Keep administration pages out of search results
+Disallow: /admin/
+Disallow: /login/
+
+# Sitemap location
+# Replace YOUR-DOMAIN with your actual deployed domain
+Sitemap: https://YOUR-DOMAIN/sitemap.xml

@@ -1,0 +1,141 @@
+
+/* =========================================
+   CONTACT MESSAGES ADMIN PAGE
+========================================= */
+
+.contact-message-modal {
+  max-width: 650px;
+}
+
+.contact-message-content {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.contact-message-content p {
+  margin-top: 10px;
+  padding: 18px;
+  background: #f7f9f8;
+  border: 1px solid #e5ebe7;
+  border-radius: 10px;
+  color: #34443b;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.contact-message-modal .appointment-modal-body a {
+  color: #087b48;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contact-message-modal .appointment-modal-body a:hover {
+  text-decoration: underline;
+}
+
+/* Message status actions */
+
+.contact-message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.contact-message-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.contact-message-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-status-new {
+  background: #fff7e8;
+  color: #a15c00;
+  border-color: #f4dfb7 !important;
+}
+
+.contact-status-new:hover:not(:disabled) {
+  background: #ffefd1;
+}
+
+.contact-status-read {
+  background: #edf4ff;
+  color: #245ca6;
+  border-color: #d5e4fa !important;
+}
+
+.contact-status-read:hover:not(:disabled) {
+  background: #e0ecff;
+}
+
+.contact-status-resolved {
+  background: #eaf7ef;
+  color: #087b48;
+  border-color: #ccebd8 !important;
+}
+
+.contact-status-resolved:hover:not(:disabled) {
+  background: #d9f0e2;
+}
+
+/* Status labels */
+
+.appointment-status.new {
+  background: #fff7e8;
+  color: #a15c00;
+}
+
+.appointment-status.read {
+  background: #edf4ff;
+  color: #245ca6;
+}
+
+.appointment-status.resolved {
+  background: #eaf7ef;
+  color: #087b48;
+}
+
+.appointment-status-text.new {
+  color: #a15c00;
+}
+
+.appointment-status-text.read {
+  color: #245ca6;
+}
+
+.appointment-status-text.resolved {
+  color: #087b48;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .contact-message-actions {
+    flex-direction: column;
+  }
+
+  .contact-message-actions button {
+    width: 100%;
+  }
+
+  .contact-message-content p {
+    padding: 14px;
+    font-size: 13px;
+  }
+}

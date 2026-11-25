@@ -1,73 +1,62 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --amh-primary:#073b2b ;
-  --amh-dark:#073b2b ;
-  --amh-light: #d9f1f0;
-  --amh-text: #28343a;
-  --amh-white: #ffffff;
-}
-
+/* HEADER */
 .amh-header {
   width: 100%;
-  background: var(--amh-white);
+  background: var(--amh-white, #fff);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  font-family: Arial, sans-serif;
+  z-index: var(--z-header, 1000);
+  font-family: var(--font-primary, "Poppins", sans-serif);
+  box-shadow: var(--amh-shadow-sm, 0 4px 15px rgba(0,0,0,.05));
 }
 
 /* TOP BAR */
-
 .amh-topbar {
   width: 100%;
-  background: var(--amh-primary);
+  background: var(--amh-green-dark, #073b2b);
   color: white;
 }
 
 .amh-topbar-inner {
-  max-width: 1250px;
-  min-height: 33px;
+  max-width: var(--container-width, 1250px);
+  min-height: 36px;
   margin: auto;
   padding: 0 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  font-size: 13px;
+  font-size: var(--font-xs, 12px);
   font-weight: 500;
 }
 
 .amh-emergency {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: white;
   text-decoration: none;
   white-space: nowrap;
+  transition: opacity var(--transition-fast, .2s ease);
 }
 
 .amh-emergency:hover {
-  opacity: 0.8;
+  opacity: .75;
 }
 
 /* MAIN HEADER */
-
 .amh-header-inner {
-  max-width: 1250px;
-  min-height: 73px;
+  max-width: var(--container-width, 1250px);
+  min-height: 82px;
   margin: auto;
-  padding: 8px 25px;
+  padding: 10px 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 25px;
+  gap: 20px;
 }
 
 /* BRAND */
-
 .amh-brand {
   display: flex;
   align-items: center;
@@ -77,17 +66,17 @@
 }
 
 .amh-logo {
-  width: 47px;
-  height: 47px;
+  width: 49px;
+  height: 49px;
   border-radius: 50%;
-  background: var(--amh-primary);
+  background: var(--amh-green-dark, #073b2b);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 17px;
   font-weight: 800;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--amh-shadow-sm);
 }
 
 .amh-brand-text {
@@ -99,22 +88,21 @@
 .amh-brand-text strong {
   font-size: 15px;
   font-weight: 700;
-  color: #202a30;
+  color: var(--amh-text-dark, #172b24);
   white-space: nowrap;
 }
 
 .amh-brand-text small {
   font-size: 12px;
-  color: #78858b;
+  color: var(--amh-text-muted, #64748b);
 }
 
 /* NAVIGATION */
-
 .amh-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   margin-left: auto;
 }
 
@@ -126,76 +114,140 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 11px 14px;
-  color: var(--amh-text);
+  padding: 11px 12px;
+  color: var(--amh-text, #354047);
   text-decoration: none;
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-md, 8px);
   font-family: inherit;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: 0.2s ease;
+  transition: all var(--transition-fast, .2s ease);
 }
 
-.amh-nav-link:hover {
-  color: var(--amh-primary);
-  background: #f0f8f8;
-}
-
+.amh-nav-link:hover,
 .amh-nav-link.active {
-  background: var(--amh-light);
-  color: var(--amh-primary);
+  color: var(--amh-green, #008a4b);
+  background: var(--amh-green-light, #eaf7ef);
 }
 
 /* DEPARTMENT DROPDOWN */
-
 .amh-dropdown {
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% + 8px);
   left: 0;
-  min-width: 190px;
+  min-width: 210px;
   background: white;
-  border-radius: 7px;
+  border: 1px solid var(--amh-border, #e5e9e7);
+  border-radius: var(--radius-lg, 14px);
   padding: 8px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--amh-shadow-md);
+  z-index: var(--z-dropdown, 100);
 }
 
 .amh-dropdown a {
   display: block;
-  padding: 11px;
-  color: var(--amh-text);
+  padding: 11px 12px;
+  color: var(--amh-text, #354047);
   font-size: 13px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: var(--radius-sm, 5px);
+  transition: all var(--transition-fast, .2s ease);
 }
 
 .amh-dropdown a:hover {
-  background: var(--amh-light);
-  color: var(--amh-primary);
+  background: var(--amh-green-light, #eaf7ef);
+  color: var(--amh-green, #008a4b);
+}
+
+/* AUTHENTICATION AREA */
+.amh-header-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.amh-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.amh-user-name {
+  color: var(--amh-text-dark, #172b24);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.amh-account-button,
+.amh-login-button,
+.amh-logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 14px;
+  border-radius: var(--radius-md, 8px);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast, .2s ease);
+}
+
+.amh-account-button,
+.amh-login-button {
+  color: white;
+  background: var(--amh-green, #008a4b);
+  border: 1px solid var(--amh-green, #008a4b);
+}
+
+.amh-account-button:hover,
+.amh-login-button:hover {
+  background: var(--amh-green-dark, #073b2b);
+  border-color: var(--amh-green-dark, #073b2b);
+}
+
+.amh-logout-button {
+  color: var(--amh-text, #354047);
+  background: white;
+  border: 1px solid var(--amh-border, #e5e9e7);
+}
+
+.amh-logout-button:hover {
+  color: #c0392b;
+  border-color: #c0392b;
+  background: #fff5f4;
 }
 
 /* APPOINTMENT BUTTON */
-
 .amh-appointment {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--amh-primary);
+  background: var(--amh-green, #008a4b);
   color: white;
-  padding: 11px 17px;
-  border-radius: 6px;
+  padding: 11px 16px;
+  border-radius: var(--radius-md, 8px);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
-  transition: 0.2s ease;
+  transition: all var(--transition-fast, .2s ease);
 }
 
-.amh-appointment:hover {
-  background: var(--amh-dark);
+.amh-appointment:hover,
+.amh-appointment-mobile:hover {
+  background: var(--amh-green-dark, #073b2b);
+  color: white;
 }
 
 .amh-appointment-mobile {
@@ -203,49 +255,62 @@
 }
 
 /* MOBILE TOGGLE */
-
 .amh-mobile-toggle {
   display: none;
   border: none;
   background: transparent;
-  color: var(--amh-primary);
+  color: var(--amh-green-dark, #073b2b);
   cursor: pointer;
+  padding: 7px;
+  border-radius: var(--radius-md, 8px);
+}
+
+.amh-mobile-toggle:hover {
+  background: var(--amh-green-light, #eaf7ef);
 }
 
 /* TABLET */
-
-@media (max-width: 1050px) {
+@media (max-width: 1100px) {
   .amh-header-inner {
     gap: 12px;
-    padding: 8px 18px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .amh-nav-link {
-    padding: 10px 9px;
-    font-size: 13px;
+    padding: 10px 8px;
+    font-size: 12px;
   }
 
   .amh-brand-text strong {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .amh-appointment {
-    padding: 10px 12px;
-    font-size: 13px;
+    padding: 10px 11px;
+    font-size: 12px;
+  }
+
+  .amh-account-button,
+  .amh-login-button,
+  .amh-logout-button {
+    padding: 9px 10px;
+    font-size: 12px;
   }
 }
 
-/* MOBILE */
-
+/* MOBILE NAVIGATION */
 @media (max-width: 850px) {
   .amh-header-inner {
-    min-height: 75px;
+    min-height: 74px;
+    position: relative;
   }
 
   .amh-mobile-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
+    order: 3;
   }
 
   .amh-appointment {
@@ -263,8 +328,9 @@
     flex-direction: column;
     align-items: stretch;
     gap: 5px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--amh-shadow-md);
     margin: 0;
+    border-top: 1px solid var(--amh-border-light, #eef2ef);
   }
 
   .amh-nav.amh-nav-open {
@@ -281,8 +347,9 @@
   .amh-dropdown {
     position: static;
     box-shadow: none;
-    background: #f5fafa;
+    background: var(--amh-background-soft, #f7faf8);
     margin: 5px 0;
+    border: none;
   }
 
   .amh-appointment-mobile {
@@ -291,18 +358,69 @@
     justify-content: center;
     margin-top: 10px;
     padding: 13px;
-    border-radius: 6px;
-    background: var(--amh-primary);
+    border-radius: var(--radius-md, 8px);
+    background: var(--amh-green, #008a4b);
     color: white;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
   }
+
+  .amh-header-auth {
+    margin-left: auto;
+  }
+
+  .amh-user-info {
+    gap: 6px;
+  }
+
+  .amh-user-name {
+    display: none;
+  }
 }
 
 /* SMALL PHONES */
-
 @media (max-width: 480px) {
+  .amh-header-inner {
+    padding: 9px 12px;
+    min-height: 68px;
+    gap: 8px;
+  }
+
+  .amh-logo {
+    width: 41px;
+    height: 41px;
+    font-size: 14px;
+  }
+
+  .amh-brand {
+    gap: 8px;
+  }
+
+  .amh-brand-text strong {
+    font-size: 11px;
+  }
+
+  .amh-brand-text small {
+    font-size: 10px;
+  }
+
+  .amh-header-auth {
+    gap: 5px;
+  }
+
+  .amh-account-button,
+  .amh-login-button,
+  .amh-logout-button {
+    min-height: 35px;
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .amh-mobile-toggle {
+    padding: 5px;
+  }
+
   .amh-topbar-inner {
     padding: 8px 12px;
     font-size: 10px;
@@ -313,35 +431,162 @@
   .amh-emergency {
     font-size: 10px;
   }
+}
 
-  .amh-header-inner {
-    padding: 9px 14px;
-    min-height: 68px;
-  }
-
-  .amh-logo {
-    width: 42px;
-    height: 42px;
-    font-size: 15px;
-  }
-
-  .amh-brand {
-    gap: 9px;
-  }
-
-  .amh-brand-text strong {
-    font-size: 13px;
-  }
-
-  .amh-brand-text small {
-    font-size: 11px;
+/* HIDE TOP BAR ON MOBILE */
+@media (max-width: 768px) {
+  .amh-topbar {
+    display: none;
   }
 }
 
 
-/* Hide top information bar on mobile */
+
+
+
+/* PROFILE DROPDOWN */
+
+.amh-profile-wrapper {
+  position: relative;
+}
+
+.amh-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #073b2b;
+  cursor: pointer;
+}
+
+.amh-profile-avatar {
+  width: 39px;
+  height: 39px;
+  min-width: 39px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #073b2b;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.amh-profile-trigger svg {
+  transition: transform 0.25s ease;
+}
+
+.amh-profile-trigger .rotate-chevron {
+  transform: rotate(180deg);
+}
+
+.amh-profile-dropdown {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  width: 270px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e8eee9;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  animation: profileDropdownIn 0.2s ease;
+}
+
+@keyframes profileDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.amh-profile-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 5px;
+  min-width: 0;
+}
+
+.amh-profile-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.amh-profile-heading strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #173b2e;
+  overflow-wrap: anywhere;
+}
+
+.amh-profile-heading small {
+  font-size: 12px;
+  color: #7a8980;
+  overflow-wrap: anywhere;
+}
+
+.amh-profile-divider {
+  height: 1px;
+  background: #edf1ed;
+  margin: 8px 0;
+}
+
+.amh-profile-dropdown a,
+.amh-profile-dropdown > button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #34483c;
+  font-size: 14px;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.amh-profile-dropdown a:hover,
+.amh-profile-dropdown > button:hover {
+  background: #f0f6f2;
+  color: #008a4b;
+}
+
+.amh-profile-dropdown > button {
+  color: #c0392b;
+}
+
+.amh-profile-dropdown > button:hover {
+  background: #fff1ef;
+  color: #c0392b;
+}
+
+.amh-profile-dropdown > button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* MOBILE PROFILE ADJUSTMENTS */
+
 @media (max-width: 768px) {
-  .amh-topbar {
-    display: none;
+  .amh-profile-dropdown {
+    right: -10px;
+    width: 260px;
   }
 }

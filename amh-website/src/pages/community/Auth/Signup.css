@@ -1,0 +1,398 @@
+
+.amh-signup-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #f3f6f4;
+  font-family: var(--font-primary);
+}
+
+.amh-signup-container {
+  width: 100%;
+  max-width: 1220px;
+  min-height: 780px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 20px 65px rgba(7, 59, 43, 0.09);
+}
+
+/* Visual side */
+
+.amh-signup-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(5, 49, 36, 0.97), rgba(13, 137, 80, 0.88)),
+    url("/images/community-bg.jpg") center/cover;
+}
+
+.amh-signup-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.amh-signup-brand-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.amh-signup-brand h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 20px;
+}
+
+.amh-signup-brand span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.amh-signup-visual-content {
+  max-width: 430px;
+}
+
+.amh-signup-label {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #d8c27a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.amh-signup-visual-content h1 {
+  margin: 0 0 22px;
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4vw, 51px);
+  line-height: 1.16;
+}
+
+.amh-signup-visual-content h1 span {
+  color: #d8c27a;
+}
+
+.amh-signup-visual-content p {
+  max-width: 390px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.amh-signup-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.amh-signup-benefits > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+}
+
+.amh-signup-benefit-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9px;
+  color: #e0ce92;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.amh-signup-visual-footer {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+/* Form side */
+
+.amh-signup-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 55px;
+}
+
+.amh-signup-form-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.amh-signup-mobile-brand {
+  display: none;
+}
+
+.amh-signup-heading {
+  margin-bottom: 24px;
+}
+
+.amh-signup-heading h2 {
+  margin: 0 0 9px;
+  color: #17392d;
+  font-family: var(--font-heading);
+  font-size: 32px;
+}
+
+.amh-signup-heading p {
+  margin: 0;
+  color: #7b8781;
+  font-size: 13px;
+}
+
+.amh-signup-google {
+  width: 100%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #e0e8e3;
+  border-radius: 9px;
+  background: #fff;
+  color: #263a30;
+  font-family: var(--font-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.amh-signup-google:hover {
+  border-color: #0d8950;
+  background: #f8fbf9;
+}
+
+.amh-signup-google svg {
+  width: 19px;
+  height: 19px;
+}
+
+.amh-signup-or {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.amh-signup-or::before,
+.amh-signup-or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e9eeeb;
+}
+
+.amh-signup-or span {
+  color: #9aa49e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.amh-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.amh-signup-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: #273b32;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.amh-signup-input {
+  height: 47px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 13px;
+  border: 1px solid #e0e8e3;
+  border-radius: 8px;
+  background: #fbfcfb;
+  color: #829087;
+  transition: 0.25s ease;
+}
+
+.amh-signup-input:focus-within {
+  border-color: #0d8950;
+  box-shadow: 0 0 0 3px rgba(13, 137, 80, 0.09);
+  background: #fff;
+}
+
+.amh-signup-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #263a30;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.amh-signup-input input::placeholder {
+  color: #a6b0aa;
+}
+
+.amh-signup-field small {
+  display: block;
+  margin-top: 5px;
+  color: #929e96;
+  font-size: 10px;
+}
+
+.amh-signup-password-toggle {
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border: none;
+  background: transparent;
+  color: #829087;
+  cursor: pointer;
+}
+
+.amh-signup-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 5px;
+  color: #758179;
+  font-size: 11px;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.amh-signup-agreement input {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: #0d8950;
+}
+
+.amh-signup-agreement a,
+.amh-signup-login a {
+  color: #0d8950;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.amh-signup-submit {
+  width: 100%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 9px;
+  background: #0d8950;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.amh-signup-submit:hover {
+  background: #073b2b;
+  transform: translateY(-2px);
+}
+
+.amh-signup-login {
+  margin: 22px 0 0;
+  text-align: center;
+  color: #7b8781;
+  font-size: 12px;
+}
+
+.amh-signup-terms {
+  margin: 25px 0 0;
+  color: #a1aaa4;
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .amh-signup-page {
+    padding: 20px;
+  }
+
+  .amh-signup-container {
+    max-width: 600px;
+    grid-template-columns: 1fr;
+  }
+
+  .amh-signup-visual {
+    display: none;
+  }
+
+  .amh-signup-form-section {
+    padding: 45px 35px;
+  }
+
+  .amh-signup-mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    color: #0d8950;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 480px) {
+  .amh-signup-page {
+    min-height: 100vh;
+    padding: 0;
+    background: #fff;
+  }
+
+  .amh-signup-container {
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .amh-signup-form-section {
+    padding: 28px 22px;
+  }
+
+  .amh-signup-heading h2 {
+    font-size: 28px;
+  }
+}

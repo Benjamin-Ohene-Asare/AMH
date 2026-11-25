@@ -1,11 +1,15 @@
 
 from django.db import models
+from django.core.files.storage import storages
 
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
 
-    image = models.ImageField(upload_to="events/")
+    image = models.ImageField(
+        upload_to="events/",
+        storage=storages["supabase_media"]
+    )
 
     description = models.TextField()
 

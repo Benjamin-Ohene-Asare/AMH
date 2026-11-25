@@ -1,0 +1,40 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.python-version
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# Django
+staticfiles/
+media/
+*.log
+
+# Local databases and backups
+*.sqlite3
+*.db
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Editor files
+.vscode/
+.idea/
+.DS_Store
+
+# Operating system
+Thumbs.db
+Desktop.ini
